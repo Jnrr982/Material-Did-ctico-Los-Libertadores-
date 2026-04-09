@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta Académica - Facultad de Ciencias Humanas y Sociales</title>
+    
+    <style>
+        :root {
+            --color-institucional: #006473; 
+            --amarillo-lib: #fdb813;
+            --blanco: #ffffff;
+            --gris-fondo: #f4f7f6;
+            --texto-oscuro: #2d3436;
+            --sombra: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background-color: var(--gris-fondo); 
+            margin: 0; 
+            color: var(--texto-oscuro); 
+        }
+
+        .oculto { display: none !important; }
+
+        /* ENCABEZADO GRANDE Y PROFESIONAL */
+        header {
+            background-color: var(--color-institucional);
+            padding: 30px 0;
+            box-shadow: var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--amarillo-lib);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-placeholder {
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menus {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid transparent;
+            padding: 12px 25px;
+            cursor: pointer;
+            color: var(--blanco);
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover, .nav-btn.activo {
+            background: var(--amarillo-lib);
+            color: var(--color-institucional);
+            border-color: var(--blanco);
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .contenedor-blanco {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--color-institucional);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        /* SELECCIÓN DE CARRERAS */
+        .grid-carreras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card-carrera {
+            background: var(--color-institucional);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            border-bottom: 8px solid var(--amarillo-lib);
+        }
+
+        .card-carrera:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card-carrera h2 { font-size: 1.6rem; margin-bottom: 20px; }
+
+        /* MALLA CURRICULAR DINÁMICA */
+        .fila-semestre {
+            display: flex;
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            overflow: hidden;
+        }
+
+        .etiqueta-semestre {
+            background: var(--color-institucional);
+            color: white;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .materias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .materia-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .materia-box:hover {
+            background: var(--amarillo-lib);
+            transform: scale(1.03);
+        }
+
+        /* MODAL */
+        #modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            background: white;
+            width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .btn-cerrar {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: none; border: none; font-size: 1.5rem; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-placeholder" onclick="mostrarSeccion('inicio')">
+                <span style="background: white; color: #006473; padding: 5px 10px; border-radius: 5px;">LOGO</span>
+                UNILIBERTADORES
+            </a>
+            <nav class="nav-menus">
+                <button class="nav-btn activo" id="btn-inicio" onclick="mostrarSeccion('inicio')">Inicio</button>
+                <button class="nav-btn" id="btn-malla" onclick="abrirMallaUltima()">Malla Curricular</button>
+                <button class="nav-btn" id="btn-mapa" onclick="abrirMapaUltimo()">Mapa de Ruta</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="sec-inicio">
+            <h1>Estrategia de Orientación Académica</h1>
+            <div class="grid-carreras">
+                <div class="card-carrera" onclick="seleccionarCarrera('Infantil Bogotá')">
+                    <h2>Lic. Educación Infantil<br>(Bogotá)</h2>
+                    <p>Ver Plan de Estudios</p>
+                </div>
+                <div class="card-carrera" onclick="seleccionarCarrera('Infantil Cartagena')">
+                    <h2>Lic. Educación Infantil<br>(Cartagena)</h2>
+                    <p>Ver Plan de Estudios</p>
+                </div>
+                <div class="card-carrera" onclick="seleccionarCarrera('Especial')">
+                    <h2>Lic. Educación Especial<br>(Bogotá)</h2>
+                    <p>Ver Plan de Estudios</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-malla" class="oculto">
+            <div class="contenedor-blanco">
+                <h2 id="titulo-malla" style="color: var(--color-institucional); margin-bottom: 30px;"></h2>
+                <div id="contenedor-filas">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-overlay" onclick="cerrarModal()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="btn-cerrar" onclick="cerrarModal()">×</button>
+            <div style="color: var(--color-institucional); font-weight: bold; margin-bottom: 10px;" id="m-semestre"></div>
+            <h2 id="m-nombre" style="margin-top: 0;"></h2>
+            <hr>
+            <p><strong>Descripción:</strong> Asignatura fundamental para el desarrollo de competencias profesionales en la licenciatura.</p>
+            <p><strong>Objetivo:</strong> Optimizar la gestión de información y el conocimiento técnico de los estudiantes.</p>
+        </div>
+    </div>
+
+    <script>
+        let carreraActual = "";
+
+        const datosMaterias = {
+            "Infantil Bogotá": [
+                ["Cátedra Libertadora", "Gestión de la Información", "Maestro y Escenarios", "Neuropedagogía", "TIC e Interculturalidad", "Historia de la Educación", "Lengua y Comunicación"],
+                ["Ética y Responsabilidad", "Infancias: Primeros Años", "Desarrollo Cognitivo", "Modelos y Perspectivas", "Electiva Integral I", "Inglés I"],
+                ["Inglés II", "Experiencias Significativas", "Pensamiento Lingüístico", "Electiva Disciplinar I", "Fundamentos Matemáticos"],
+                ["Desarrollo Biopsicológico", "Electiva Disciplinar II", "Didáctica General", "Escuela y Diversidad", "Currículo y Gestión", "Inglés III"],
+                ["Electiva Disciplinar III", "Evaluación", "Educación Inclusiva", "Inglés IV", "Emprender e Innovar"],
+                ["Seminario Investigación I", "Estadística", "Pedagogía DDHH", "Praxis Primera Infancia", "Saber Didáctico: Lúdica"],
+                ["Diseños Metodológicos", "Praxis Aúlica", "Saber Didáctico: Corporal", "Seminario de Infancia", "Pensamiento Complejo"],
+                ["Seminario Investigación II", "Salud y Nutrición", "Saber Didáctico: Pensamiento", "Praxis Escenarios Familiares"],
+                ["Seminario Investigación III", "Teaching English", "Proyecto Pedagógico", "Políticas y Tendencias", "Praxis Hospitalaria"]
+            ],
+            "Infantil Cartagena": [
+                ["Historia de la Educación", "Maestro y Escenarios", "Neuropedagogía", "TIC", "Comunicación", "Cátedra", "Medios"],
+                ["Modelos y Perspectivas", "Infancias", "Desarrollo Cognitivo", "Inglés I", "Ética", "Electiva I"],
+                ["Experiencias", "Pensamiento Lingüístico", "Inglés II", "Matemáticas", "Electiva Disciplinar I"],
+                ["Currículo y Gestión", "Escuela y Diversidad", "Desarrollo Biopsico", "Didáctica", "Inglés III", "Electiva II"],
+                ["Evaluación", "Ed. Inclusiva", "Inglés IV", "Emprendimiento", "Electiva III"],
+                ["Pedagogía DDHH", "Praxis Integral", "Didáctica Lúdica", "Investigación I"],
+                ["Seminario Infancia", "Praxis Aúlica", "Didáctica Corporal", "Diseños Metodológicos", "Teaching English"],
+                ["Praxis Familiar", "Salud y Nutrición", "Procesos de Pensamiento", "Investigación II"],
+                ["Políticas y Tendencias", "Praxis Hospitalaria", "Proyecto Flexible", "Investigación III"]
+            ],
+            "Especial": [
+                ["Historia Educación", "Escenarios", "Neuropedagogía", "TIC", "Lenguaje", "Cátedra", "Gestión Info"],
+                ["Modelos", "Infancias", "Cognición", "Inglés Básico", "Ética", "Electiva I"],
+                ["Experiencias", "Pensamiento Lingüístico", "Inglés II", "Matemáticas", "Electiva Disciplinar I"],
+                ["Currículo", "Diversidad", "Pensamiento Científico", "Didáctica", "Inglés Intermedio", "Electiva II"],
+                ["Evaluación", "Ed. Inclusiva", "Inglés Avanzado", "Emprender", "Electiva III"],
+                ["Epistemología", "Praxis Diferencial", "Didácticas Especiales", "Investigación I", "Estadística"],
+                ["Currículo Diversidad", "Praxis Discapacidad Intelectual", "Enseñanza Intelectual", "Diseños", "Electiva II"],
+                ["Transcurrir Vida", "Praxis Sensorial", "Enseñanza Sensorial", "Investigación II", "Pensamiento Complejo"],
+                ["Políticas", "Praxis Motora", "Diseño Universal (DUA)", "Investigación III", "Teaching English"]
+            ]
+        };
+
+        function seleccionarCarrera(nombre) {
+            carreraActual = nombre;
+            document.getElementById('titulo-malla').innerText = "Plan de Estudios: " + nombre;
+            generarMalla();
+            mostrarSeccion('malla');
+        }
+
+        function mostrarSeccion(id) {
+            document.getElementById('sec-inicio').classList.add('oculto');
+            document.getElementById('sec-malla').classList.add('oculto');
+            
+            if(id === 'inicio') {
+                document.getElementById('sec-inicio').classList.remove('oculto');
+                actualizarBotones('btn-inicio');
+            } else {
+                document.getElementById('sec-malla').classList.remove('oculto');
+                actualizarBotones('btn-malla');
+            }
+        }
+
+        function actualizarBotones(idActivo) {
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('activo'));
+            document.getElementById(idActivo).classList.add('activo');
+        }
+
+        function generarMalla() {
+            const container = document.getElementById('contenedor-filas');
+            container.innerHTML = "";
+            const semestres = datosMaterias[carreraActual];
+
+            semestres.forEach((materias, i) => {
+                const numSem = i + 1;
+                const fila = document.createElement('div');
+                fila.className = "fila-semestre";
+                
+                let htmlMaterias = "";
+                materias.forEach(m => {
+                    htmlMaterias += `<div class="materia-box" onclick="abrirModal('${m}', ${numSem})">${m}</div>`;
+                });
+
+                fila.innerHTML = `
+                    <div class="etiqueta-semestre">SEMESTRE ${numSem}</div>
+                    <div class="materias-grid">${htmlMaterias}</div>
+                `;
+                container.appendChild(fila);
+            });
+        }
+
+        function abrirModal(nombre, sem) {
+            document.getElementById('m-nombre').innerText = nombre;
+            document.getElementById('m-semestre').innerText = "SEMESTRE " + sem + " - " + carreraActual;
+            document.getElementById('modal-overlay').style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-overlay').style.display = "none";
+        }
+
+        function abrirMallaUltima() {
+            if(!carreraActual) { alert("Primero selecciona una licenciatura en Inicio"); return; }
+            mostrarSeccion('malla');
+        }
+    </script>
+</body>
+</html>
