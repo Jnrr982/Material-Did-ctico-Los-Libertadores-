@@ -18,18 +18,22 @@
                 <div class="nav-dropdown">
                     <button class="nav-btn">Malla Completa <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a onclick="seleccionarCarrera('Educación Infantil', 'mapa-general')">Educación Infantil</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil - Cartagena', 'mapa-general')">Ed. Infantil - Cartagena</a>
-                        <a onclick="seleccionarCarrera('Educación Especial', 'mapa-general')">Educación Especial</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil')">Ed. Infantil (Bogotá)</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil - Cartagena')">Ed. Infantil (Cartagena)</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil - Virtual')">Ed. Infantil (Virtual)</a>
+                        <a onclick="seleccionarCarrera('Educación Especial')">Educación Especial</a>
+                        <a onclick="seleccionarCarrera('Etnoeducación')">Etnoeducación (Virtual)</a>
                     </div>
                 </div>
 
                 <div class="nav-dropdown">
                     <button class="nav-btn">Ruta Cronológica <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a onclick="seleccionarCarrera('Educación Infantil', 'mapa-cronologico')">Educación Infantil</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil - Cartagena', 'mapa-cronologico')">Ed. Infantil - Cartagena</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil', 'mapa-cronologico')">Ed. Infantil (Bogotá)</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil - Cartagena', 'mapa-cronologico')">Ed. Infantil (Cartagena)</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil - Virtual', 'mapa-cronologico')">Ed. Infantil (Virtual)</a>
                         <a onclick="seleccionarCarrera('Educación Especial', 'mapa-cronologico')">Educación Especial</a>
+                        <a onclick="seleccionarCarrera('Etnoeducación', 'mapa-cronologico')">Etnoeducación (Virtual)</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +42,6 @@
 
     <main class="contenedor-plataforma">
         <section id="seleccion-programa" class="pantalla-activa">
-            
             <div class="contenedor-facultad">
                 <h2 class="titulo-facultad">Facultad de Ciencias Humanas y Sociales</h2>
                 
@@ -46,9 +49,9 @@
                     <div class="card-carrera card-infantil">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
-                            <h2>Licenciatura en Educación Infantil</h2>
+                            <h2>Licenciatura en Educación Infantil (Bogotá)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -57,9 +60,9 @@
                     <div class="card-carrera card-cartagena">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
-                            <h2>Licenciatura en Educación Infantil – Cartagena</h2>
+                            <h2>Licenciatura en Educación Infantil (Cartagena)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil - Cartagena', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil - Cartagena')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil - Cartagena', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -70,8 +73,30 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Educación Especial</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Especial', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Especial')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Educación Especial', 'mapa-cronologico')">Ver Ruta</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-carrera card-virtual">
+                        <div class="overlay-card"></div>
+                        <div class="contenido-card">
+                            <h2>Licenciatura en Educación Infantil (Virtual)</h2>
+                            <div class="botones-card">
+                                <button onclick="seleccionarCarrera('Educación Infantil - Virtual')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil - Virtual', 'mapa-cronologico')">Ver Ruta</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-carrera card-etno">
+                        <div class="overlay-card"></div>
+                        <div class="contenido-card">
+                            <h2>Licenciatura en Etnoeducación (Virtual)</h2>
+                            <div class="botones-card">
+                                <button onclick="seleccionarCarrera('Etnoeducación')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Etnoeducación', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
                     </div>
