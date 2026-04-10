@@ -226,6 +226,17 @@ function verDetalle(numPeriodo, mat) {
 }
 
 function cerrarModal() {
+    // Forzamos a que se agregue la clase oculto
     document.getElementById('modal-overlay').classList.add('oculto');
     document.getElementById('modal-detalle').classList.add('oculto');
+    
+    // Por si acaso, también podemos asegurar el estilo directo
+    document.getElementById('modal-overlay').style.display = 'none';
+    document.getElementById('modal-detalle').style.display = 'none';
 }
+
+// EJECUTA ESTO AL FINAL DE TU ARCHIVO JS:
+// Esto garantiza que el modal esté cerrado cuando la página termine de cargar
+window.onload = function() {
+    cerrarModal();
+};
