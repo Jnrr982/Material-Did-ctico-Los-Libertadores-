@@ -16,7 +16,7 @@
                 <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('seleccion-programa')">Inicio</button>
                 
                 <div class="nav-dropdown">
-                    <button class="nav-btn">Malla Completa <i class="fas fa-caret-down"></i></button>
+                    <button class="nav-btn">Mapa Completo <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
                         <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ed. Infantil (Bogotá)</a>
                         <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ed. Infantil (Cartagena)</a>
@@ -51,7 +51,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Educación Infantil (Bogotá)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                         <div class="contenido-card">
                             <h2>Lic. en Educación Infantil (Cartagena)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Educación Especial</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                         <div class="contenido-card">
                             <h2>Lic. en Educación Infantil (Virtual)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Etnoeducación (Virtual)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
         <section id="mapa-general" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <header class="header-mapa">
-                    <h2>Malla Curricular Completa</h2>
+                    <h2>Mapa Curricular Completo</h2>
                     <span class="badget-programa" id="tag-general">Programa</span>
                 </header>
                 
@@ -139,30 +139,34 @@
     </main>
 
     <div id="modal-overlay" class="oculto" onclick="cerrarModal()"></div>
+    
     <div id="modal-detalle" class="oculto">
         <button class="btn-cerrar-modal" onclick="cerrarModal()">×</button>
+        
         <div class="modal-header">
-            <span class="tag-modal" id="modal-tag-semestre">Semestre X</span>
-            <span class="tag-modal" id="modal-tag-creditos" style="background:#fdb813; color:#333;">X Créditos</span>
-            <h2 id="modal-materia-nombre">Materia</h2>
-        </div>
-        <div class="modal-body">
-            <h2 id="det-nombre">Nombre de la Asignatura</h2>
-        <span id="det-categoria" class="tag">Categoría</span>
-    </div>
-    <div class="modal-body">
-        <div class="info-item">
-            <strong><i class="fas fa-bullseye"></i> Objetivo:</strong>
-            <p id="det-objetivo">Cargando objetivo...</p>
-        </div>
-        <div class="info-row">
-            <div class="info-item">
-                <strong><i class="fas fa-list-ul"></i> Requisitos:</strong>
-                <p id="det-requisitos">Ninguno</p>
+            <div class="modal-tags">
+                <span class="tag-modal" id="modal-tag-semestre">Semestre</span>
+                <span class="tag-modal" id="det-categoria">Categoría</span>
             </div>
+            <h2 id="det-nombre">Nombre de la Asignatura</h2>
+        </div>
+
+        <div class="modal-body">
             <div class="info-item">
-                <strong><i class="fas fa-star"></i> Créditos:</strong>
-                <p id="det-creditos">0</p>
+                <strong><i class="fas fa-bullseye"></i> Objetivo:</strong>
+                <p id="det-objetivo">Cargando objetivo...</p>
+            </div>
+            
+            <div class="info-row">
+                <div class="info-item">
+                    <strong><i class="fas fa-list-ul"></i> Requisitos:</strong>
+                    <p id="det-requisitos">Ninguno</p>
+                </div>
+                <div class="info-item">
+                    <strong><i class="fas fa-star"></i> Créditos:</strong>
+                    <p id="det-creditos">0</p>
+                </div>
+            </div>
         </div>
     </div>
 
