@@ -8,19 +8,15 @@
 }
 
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--gris-fondo); margin: 0; color: var(--texto-oscuro); }
-/* Esto asegura que si tiene la clase 'oculto', desaparezca de verdad */
-.oculto {
-    display: none !important;
-}
 
-/* Asegúrate de que el modal tenga una posición fija */
-#modal-detalle, #modal-overlay {
-    transition: all 0.3s ease;
-}
 /* UTILIDADES CLAVE PARA OCULTAR/MOSTRAR */
+.oculto { display: none !important; }
 .pantalla-oculta { display: none !important; }
 .pantalla-activa { display: block; animation: fadeIn 0.4s ease-in-out; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Asegúrate de que el modal tenga una transición suave */
+#modal-detalle, #modal-overlay { transition: all 0.3s ease; }
 
 /* NAVEGACIÓN */
 .nav-institucional { background-color: var(--color-institucional); padding: 25px 50px; box-shadow: var(--sombra); position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--blanco); }
@@ -69,6 +65,7 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 .leyenda-colores { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; justify-content: center; }
 .badge-leyenda { padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; color: #333; }
 
+/* CLASES DE COLORES POR CATEGORÍA (Se usan en Malla, Roadmap y Modal) */
 .cat-basico { background-color: #bbdefb; border: 2px solid #2196f3; } /* Azul - Básico */
 .cat-practica { background-color: #b2dfdb; border: 2px solid #009688; } /* Verde - Práctica */
 .cat-disciplinar { background-color: #ffe0b2; border: 2px solid #ff9800; } /* Naranja - Disciplinar */
@@ -84,7 +81,7 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 /* CELDA MATERIA CON CRÉDITOS */
 .materia-cell { 
     position: relative; 
-    padding: 15px 15px 30px 15px; /* Espacio extra abajo para los créditos */
+    padding: 15px 15px 30px 15px; 
     border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: bold; 
     cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); color: #333;
@@ -113,8 +110,26 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 .materia-roadmap { padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center;}
 .materia-roadmap:hover { filter: brightness(0.95); transform: scale(1.02); }
 
-/* MODAL */
-#modal-detalle { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; width: 500px; max-width: 90%; border-radius: 15px; z-index: 1000; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+/* --- MODAL DETALLES --- */
 #modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999; }
-.modal-header { border-bottom: 3px solid var(--amarillo-lib); margin-bottom: 20px; padding-bottom: 10px; }
-.btn-cerrar-modal { position: absolute; top: 15px; right: 15px; font-size: 1.8rem; border: none; background: none; cursor: pointer; color: #555; }
+#modal-detalle { 
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+    background: white; width: 550px; max-width: 90%; border-radius: 15px; 
+    z-index: 1000; padding: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+}
+.btn-cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; border: none; background: none; cursor: pointer; color: #777; transition: 0.2s; }
+.btn-cerrar-modal:hover { color: var(--color-institucional); transform: scale(1.1); }
+
+.modal-header { border-bottom: 3px solid var(--amarillo-lib); margin-bottom: 25px; padding-bottom: 15px; }
+.modal-tags { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+.tag-modal { background: var(--color-institucional); color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; border: 2px solid transparent; }
+
+#det-nombre { color: var(--color-institucional); margin: 0; font-size: 1.8rem; line-height: 1.2; }
+
+/* Cajas de información dentro del Modal */
+.info-item { background: var(--gris-fondo); padding: 15px 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid var(--color-institucional); }
+.info-item strong { display: block; color: var(--color-institucional); font-size: 1.1rem; margin-bottom: 8px; }
+.info-item p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: #444; }
+
+.info-row { display: flex; gap: 15px; }
+.info-row .info-item { flex: 1; margin-bottom: 0; }
