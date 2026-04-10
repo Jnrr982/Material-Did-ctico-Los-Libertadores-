@@ -8,7 +8,15 @@
 }
 
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--gris-fondo); margin: 0; color: var(--texto-oscuro); }
+/* Esto asegura que si tiene la clase 'oculto', desaparezca de verdad */
+.oculto {
+    display: none !important;
+}
 
+/* Asegúrate de que el modal tenga una posición fija */
+#modal-detalle, #modal-overlay {
+    transition: all 0.3s ease;
+}
 /* UTILIDADES CLAVE PARA OCULTAR/MOSTRAR */
 .pantalla-oculta { display: none !important; }
 .pantalla-activa { display: block; animation: fadeIn 0.4s ease-in-out; }
