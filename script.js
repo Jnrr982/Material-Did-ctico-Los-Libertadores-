@@ -1,118 +1,171 @@
 let programaSeleccionado = "";
 
+// Base de datos estructurada: n = Nombre, c = Créditos, t = Clase CSS (Categoría)
 const bdMaterias = {
-    "Educación Infantil": [
-        ["Cátedra Libertadora", "Gestión de la Información", "Maestro y Escenarios Educativos", "Neuropedagogía y Aprendizaje", "TIC e Interculturalidad", "Historia de la Educación", "Lengua y Comunicación"],
-        ["Ética y Responsabilidad Social", "Infancias: Primeros Años", "Desarrollo Cognitivo", "Modelos y Perspectivas", "Electiva Formación Integral I", "Inglés I"],
-        ["Inglés II", "Experiencias Significativas", "Desarrollo Pensamiento Lingüístico", "Electiva Disciplinar I", "Fundamentos de Matemáticas"],
-        ["Desarrollo Biopsicológico", "Electividad Disciplinar II", "Didáctica General", "Escuela y Diversidad", "Currículo y Gestión Educativa", "Inglés III"],
-        ["Electividad Disciplinar III", "Evaluación", "Educación Inclusiva", "Inglés IV", "Emprender, Innovar y Construir"],
-        ["Seminario Investigación I", "Estadística y Probabilidad", "Pedagogía para DDHH", "Praxis Integral Primera Infancia", "Saber Didáctico: Expresión Lúdica"],
-        ["Diseños Metodológicos", "Praxis Pedagógica Aúlica", "Saber Didáctico: Expresión Corporal", "Seminario de Infancia", "Pensamiento Complejo"],
-        ["Seminario Investigación II", "Salud y Nutrición", "Saber Didáctico: Pensamiento y Lenguaje", "Praxis Escenarios Familiares", "Electiva Formación Integral II"],
-        ["Seminario Investigación III", "Teaching English", "Proyecto Pedagógico Flexible", "Políticas y Tendencias", "Praxis Hospitalaria"]
+    "Educación Infantil Bogotá": [
+        [
+            { n: "Cátedra Libertadora", c: 3, t: "cat-transversal" },
+            { n: "Gestión de la Información", c: 2, t: "cat-transversal" },
+            { n: "Maestro y Escenarios Educ.", c: 3, t: "cat-basico" },
+            { n: "Neuropedagogía", c: 2, t: "cat-basico" },
+            { n: "TIC e Interculturalidad", c: 2, t: "cat-basico" },
+            { n: "Historia de la Educación", c: 2, t: "cat-basico" },
+            { n: "Lengua y Comunicación", c: 3, t: "cat-transversal" }
+        ],
+        [
+            { n: "Ética y Responsabilidad", c: 3, t: "cat-transversal" },
+            { n: "Infancias: Primeros Años", c: 3, t: "cat-basico" },
+            { n: "Desarrollo Cognitivo", c: 2, t: "cat-basico" },
+            { n: "Modelos Pedagógicos", c: 2, t: "cat-basico" },
+            { n: "Electiva Integral I", c: 3, t: "cat-electivo" },
+            { n: "Inglés I", c: 3, t: "cat-transversal" }
+        ]
+        // Se pueden agregar los demás semestres siguiendo este mismo patrón {n, c, t}
     ],
-    "Educación Infantil - Cartagena": [
-        ["Historia de la Educación", "Maestro y Escenarios", "Neuropedagogía", "TIC e Interculturalidad", "Lengua y Comunicación", "Cátedra Libertadora", "Medios y Mediaciones"],
-        ["Modelos y Perspectivas", "Infancias: Primeros Años", "Desarrollo Cognitivo", "Inglés I", "Ética y Responsabilidad", "Electiva Formación Integral I"],
-        ["Experiencias Significativas", "Pensamiento Lingüístico", "Inglés II", "Fundamentos de Matemáticas", "Electividad Disciplinar I"],
-        ["Currículo y Gestión", "Escuela y Diversidad", "Desarrollo Biopsicológico", "Didáctica General", "Inglés III", "Electividad Disciplinar II"],
-        ["Evaluación", "Educación Inclusiva", "Inglés IV", "Cultura del Emprendimiento", "Electividad Disciplinar III"],
-        ["Pedagogía para DDHH", "Praxis Integral Primera Infancia", "Saber Didáctico: Expresión Lúdica", "Seminario de Investigación I"],
-        ["Seminario de Infancia", "Praxis Pedagógica Aúlica", "Saber Didáctico: Expresión Corporal", "Diseños Metodológicos", "Teaching English"],
-        ["Praxis Escenarios Familiares", "Salud y Nutrición", "Saber Didáctico: Procesos de Pensamiento", "Seminario Investigación II"],
-        ["Políticas y Tendencias", "Praxis Hospitalaria", "Proyecto Pedagógico Flexible", "Seminario Investigación III"]
+    "Educación Infantil Cartagena": [
+        [
+            { n: "Historia de la Educación", c: 2, t: "cat-basico" },
+            { n: "Maestro y Escenarios", c: 3, t: "cat-basico" },
+            { n: "Neuropedagogía", c: 2, t: "cat-basico" },
+            { n: "TIC e Interculturidad", c: 2, t: "cat-basico" },
+            { n: "Lengua y Comunicación", c: 3, t: "cat-transversal" },
+            { n: "Cátedra Libertadora", c: 3, t: "cat-transversal" },
+            { n: "Medios y Mediaciones", c: 2, t: "cat-transversal" }
+        ]
     ],
-    "Educación Especial": [
-        ["Historia de la Educación", "Maestro y Escenarios", "Neuropedagogía", "TIC e Interculturalidad", "Lengua y Comunicación", "Cátedra Libertadora", "Gestión de la Información"],
-        ["Modelos y Perspectivas", "Infancias: Primeros Años", "Desarrollo Cognitivo", "Inglés I", "Ética y Responsabilidad", "Electiva Formación Integral I"],
-        ["Experiencias Significativas", "Pensamiento Lingüístico", "Inglés II", "Fundamentos de Matemáticas", "Electividad Disciplinar I"],
-        ["Currículo y Gestión", "Escuela y Diversidad", "Didáctica General", "Inglés III", "Electividad Disciplinar II"],
-        ["Evaluación", "Educación Inclusiva", "Inglés IV", "Emprender, Innovar", "Electividad Disciplinar III"],
-        ["Epistemología de la Diferencia", "Praxis Enfoque Diferencial", "Didácticas Educación Especial", "Seminario Investigación I", "Estadística y Probabilidad"],
-        ["Currículo para Diversidad", "Praxis Discapacidad Intelectual", "Enseñanza Discapacidad Intelectual", "Diseños Metodológicos", "Electiva Formación Integral II"],
-        ["Transcurrir de Vida", "Praxis Discapacidad Sensorial", "Enseñanza Discapacidad Sensorial", "Seminario Investigación II", "Pensamiento Complejo"],
-        ["Políticas y Tendencias", "Praxis Discapacidad Motora", "Diseño Universal Aprendizaje (DUA)", "Seminario Investigación III", "Teaching English"]
+    "Educación Especial Bogotá": [
+        [
+            { n: "Historia Educación", c: 2, t: "cat-basico" },
+            { n: "Maestro y Escenarios", c: 3, t: "cat-basico" },
+            { n: "Neuropedagogía", c: 2, t: "cat-basico" },
+            { n: "TIC e Interculturidad", c: 2, t: "cat-basico" },
+            { n: "Lengua y Comunicación", c: 3, t: "cat-transversal" },
+            { n: "Cátedra Libertadora", c: 3, t: "cat-transversal" },
+            { n: "Gestión Información", c: 2, t: "cat-transversal" }
+        ]
     ],
-    "Educación Infantil - Virtual": [
-        ["Cátedra Libertadora", "Gestión de la Información", "Maestro y Escenarios", "Neuroeducación", "TIC e Interculturalidad", "Historia de la Educación"],
-        ["Ética y Responsabilidad", "Infancias: Primeros Años", "Desarrollo Cognitivo", "Modelos y Perspectivas", "Inglés I"],
-        ["Experiencias Significativas", "Desarrollo Pensamiento Lingüístico", "Fundamentos de Matemáticas", "Inglés II"],
-        ["Didáctica General", "Escuela y Diversidad", "Currículo y Gestión", "Inglés III", "Emprendimiento"],
-        ["Evaluación", "Educación Inclusiva", "Estadística y Probabilidad", "Inglés IV"],
-        ["Seminario Investigación I", "Metodología Cuantitativa", "Praxis Integral Primera Infancia", "Saber Didáctico: Expresión Lúdica"],
-        ["Seminario Investigación II", "Metodología Cualitativa", "Praxis Pedagógica Aúlica", "Saber Didáctico: Expresión Artística"],
-        ["Saber Didáctico: Pensamiento y Lenguaje", "Salud y Nutrición", "Praxis Escenarios Rurales", "Teaching English"]
+    "Educación Infantil Virtual": [
+        [
+            { n: "Historia de la Educación", c: 2, t: "cat-basico" },
+            { n: "Modelos y Perspectivas", c: 2, t: "cat-basico" },
+            { n: "Proc. Psicológicos: Sensación", c: 3, t: "cat-basico" },
+            { n: "TIC e Interculturalidad", c: 2, t: "cat-basico" },
+            { n: "Filosofía y Educación", c: 3, t: "cat-transversal" },
+            { n: "Electiva Disciplinar I", c: 3, t: "cat-electivo" },
+            { n: "Lectura y Escritura", c: 3, t: "cat-transversal" }
+        ],
+        [
+            { n: "Currículo y Gestión Educativa", c: 2, t: "cat-basico" },
+            { n: "Psicología del desarrollo", c: 2, t: "cat-basico" },
+            { n: "Proc. Psicológicos: Aprendizaje", c: 3, t: "cat-basico" },
+            { n: "Didáctica General", c: 2, t: "cat-basico" },
+            { n: "Epistemología Investigación", c: 3, t: "cat-investigacion" },
+            { n: "Electiva Disciplinar II", c: 3, t: "cat-electivo" },
+            { n: "Inglés I", c: 3, t: "cat-transversal" }
+        ]
     ],
-    "Etnoeducación": [
-        ["Orígenes de la Etnoeducación", "Cátedra Libertadora", "Competencias Comunicativas", "TIC e Interculturalidad"],
-        ["Multiculturalidad e Interculturalidad", "Lenguas Nativas I", "Epistemología de la Pedagogía", "Inglés I"],
-        ["Espacio y Territorio", "Planes de Vida", "Teorías del Aprendizaje", "Didáctica"],
-        ["Proyecto Educativo Comunitario", "Etnografía", "Enfoques Curriculares", "Inglés II"],
-        ["Cátedra Estudios Afrocolombianos", "Pedagogía Propia", "Evaluación", "Inglés III"],
-        ["Enseñanza Lenguas Nativas II", "Etnociencia y Diálogo", "Legislación Educativa", "Investigación I"],
-        ["Práctica de Inmersión I", "Etnomatemática", "Etnoliteratura", "Investigación II"],
-        ["Práctica de Inmersión II", "Lenguas Nativas III", "Didácticas Etnoeducación", "Seminario Investigación III"]
+    "Etnoeducación Virtual": [
+        [
+            { n: "Historia de la Educación", c: 2, t: "cat-basico" },
+            { n: "TIC e Interculturalidad", c: 2, t: "cat-basico" },
+            { n: "Historia de la Etnoeducación", c: 3, t: "cat-disciplinar" },
+            { n: "Pedagogías Otras", c: 3, t: "cat-disciplinar" },
+            { n: "Planes de Vida", c: 3, t: "cat-disciplinar" },
+            { n: "Fundamentos de Matemáticas", c: 3, t: "cat-transversal" },
+            { n: "Cátedra Libertadora", c: 3, t: "cat-transversal" }
+        ],
+        [
+            { n: "Modelos y Perspectivas", c: 2, t: "cat-basico" },
+            { n: "Español I", c: 3, t: "cat-transversal" },
+            { n: "Territorio y Territorialidad", c: 3, t: "cat-disciplinar" },
+            { n: "Estudios Afrocolombianidad", c: 3, t: "cat-disciplinar" },
+            { n: "Proyecto Educ. Comunitario", c: 4, t: "cat-disciplinar" },
+            { n: "Inglés I", c: 3, t: "cat-transversal" }
+        ]
     ]
 };
 
-function seleccionarCarrera(programa, vistaId = 'mapa-general') {
+// Función para determinar si es Semestre o Cuatrimestre (Periodo)
+function getEtiquetaTiempo(indice) {
+    if (programaSeleccionado.includes("Virtual")) {
+        return `PERIODO ${indice + 1}`;
+    }
+    return `SEMESTRE ${indice + 1}`;
+}
+
+function seleccionarCarrera(programa, vistaId) {
     programaSeleccionado = programa;
-    const tag = `Licenciatura en ${programa}`;
-    document.getElementById('tag-general').innerText = tag;
-    document.getElementById('tag-cronologico').innerText = tag;
+    document.getElementById('tag-general').innerText = `${programa}`;
+    document.getElementById('tag-cronologico').innerText = `${programa}`;
     cambiarSeccion(vistaId); 
 }
 
 function cambiarSeccion(seccionId) {
-    document.getElementById('seleccion-programa').className = 'pantalla-oculta';
-    document.getElementById('mapa-general').className = 'pantalla-oculta';
-    document.getElementById('mapa-cronologico').className = 'pantalla-oculta';
+    // 1. Ocultar TODAS las pantallas
+    document.getElementById('seleccion-programa').classList.remove('pantalla-activa');
+    document.getElementById('seleccion-programa').classList.add('pantalla-oculta');
+    
+    document.getElementById('mapa-general').classList.remove('pantalla-activa');
+    document.getElementById('mapa-general').classList.add('pantalla-oculta');
+    
+    document.getElementById('mapa-cronologico').classList.remove('pantalla-activa');
+    document.getElementById('mapa-cronologico').classList.add('pantalla-oculta');
 
-    document.getElementById(seccionId).className = 'pantalla-activa';
+    // 2. Mostrar SOLO la pantalla seleccionada
+    document.getElementById(seccionId).classList.remove('pantalla-oculta');
+    document.getElementById(seccionId).classList.add('pantalla-activa');
 
+    // 3. Quitar estado activo de los botones del menú superior
     const menus = document.querySelectorAll('.nav-institucional .nav-btn');
     menus.forEach(menu => menu.classList.remove('activo'));
 
-    if(seccionId === 'seleccion-programa') menus[0].classList.add('activo');
+    // 4. Ejecutar funciones y marcar menú
+    if(seccionId === 'seleccion-programa') {
+        document.getElementById('btn-inicio').classList.add('activo');
+    }
     if(seccionId === 'mapa-general') { 
-        menus[1].classList.add('activo'); 
         generarMapaGeneral(); 
     }
     if(seccionId === 'mapa-cronologico') { 
-        menus[2].classList.add('activo'); 
         generarMapaCronologico(); 
     }
+    
+    // Subir scroll arriba
     window.scrollTo(0, 0);
-}
-
-function obtenerEtiquetaTiempo(index) {
-    const esVirtual = programaSeleccionado.includes("Virtual") || programaSeleccionado === "Etnoeducación";
-    return esVirtual ? `PERIODO ${index + 1}` : `SEMESTRE ${index + 1}`;
 }
 
 function generarMapaGeneral() {
     const contenedor = document.getElementById('contenedor-malla-filas');
     contenedor.innerHTML = ""; 
+    const periodos = bdMaterias[programaSeleccionado];
 
-    const semestres = bdMaterias[programaSeleccionado];
+    if(!periodos) {
+        contenedor.innerHTML = "<h3 style='text-align:center;'>Agrega las materias de esta carrera en la base de datos (script.js)</h3>";
+        return;
+    }
 
-    semestres.forEach((materiasDelSemestre, index) => {
+    periodos.forEach((materiasDelPeriodo, index) => {
         const fila = document.createElement('div');
         fila.className = 'fila-semestre';
 
         let materiasDiv = document.createElement('div');
         materiasDiv.className = 'materias-grid';
 
-        materiasDelSemestre.forEach((nombreMateria) => {
+        materiasDelPeriodo.forEach((mat) => {
             const divMateria = document.createElement('div');
-            divMateria.className = 'materia-cell';
-            divMateria.onclick = () => verDetalle(index + 1, nombreMateria);
-            divMateria.innerText = nombreMateria;
+            // Se le asigna la clase general y la clase de color (mat.t)
+            divMateria.className = `materia-cell ${mat.t}`; 
+            divMateria.onclick = () => verDetalle(index + 1, mat);
+            
+            // Nombre de la materia y el badge de créditos adentro
+            divMateria.innerHTML = `
+                ${mat.n}
+                <span class="badge-creditos">${mat.c} Cr.</span>
+            `;
             materiasDiv.appendChild(divMateria);
         });
 
-        fila.innerHTML = `<div class="etiqueta-semestre">${obtenerEtiquetaTiempo(index)}</div>`;
+        fila.innerHTML = `<div class="etiqueta-semestre">${getEtiquetaTiempo(index)}</div>`;
         fila.appendChild(materiasDiv);
         contenedor.appendChild(fila);
     });
@@ -121,22 +174,27 @@ function generarMapaGeneral() {
 function generarMapaCronologico() {
     const contenedor = document.getElementById('estaciones-roadmap');
     contenedor.innerHTML = ""; 
+    const periodos = bdMaterias[programaSeleccionado];
 
-    const semestres = bdMaterias[programaSeleccionado];
+    if(!periodos) return;
 
-    semestres.forEach((materiasDelSemestre, index) => {
+    periodos.forEach((materiasDelPeriodo, index) => {
         const divEstacion = document.createElement('div');
         divEstacion.className = 'estacion-roadmap';
 
         let listaMateriasHtml = "";
-        materiasDelSemestre.forEach((nombreMateria) => {
-            listaMateriasHtml += `<div class="materia-roadmap" onclick="verDetalle(${index + 1}, '${nombreMateria}')">${nombreMateria}</div>`;
+        materiasDelPeriodo.forEach((mat) => {
+            listaMateriasHtml += `
+            <div class="materia-roadmap ${mat.t}" onclick="verDetalle(${index + 1}, {n:'${mat.n}', c:${mat.c}, t:'${mat.t}'})">
+                <span>${mat.n}</span>
+                <span class="badge-creditos" style="position:static;">${mat.c} Cr.</span>
+            </div>`;
         });
 
         divEstacion.innerHTML = `
             <div class="punto-circulo">${index + 1}</div>
             <div class="caja-info">
-                <h3>${obtenerEtiquetaTiempo(index)}</h3>
+                <h3>${getEtiquetaTiempo(index)}</h3>
                 <div class="lista-materias-roadmap">
                     ${listaMateriasHtml}
                 </div>
@@ -146,12 +204,22 @@ function generarMapaCronologico() {
     });
 }
 
-function verDetalle(num, nombreMateria) {
-    const etiqueta = obtenerEtiquetaTiempo(num - 1);
-    document.getElementById('modal-materia-nombre').innerText = nombreMateria;
-    document.getElementById('modal-tag-semestre').innerText = `${etiqueta} - ${programaSeleccionado}`;
-    document.getElementById('modal-objetivo').innerText = "Propósito: Fortalecer las competencias disciplinares y el componente investigativo según el plan de estudios vigente.";
-    document.getElementById('modal-requisitos').innerText = "Créditos según plan de estudios. Requiere cumplimiento de prerrequisitos de área.";
+// Ahora recibe el objeto completo de la materia para mostrar créditos y categoría
+function verDetalle(numPeriodo, mat) {
+    document.getElementById('modal-materia-nombre').innerText = mat.n;
+    document.getElementById('modal-tag-semestre').innerText = `${getEtiquetaTiempo(numPeriodo - 1)} - ${programaSeleccionado}`;
+    document.getElementById('modal-tag-creditos').innerText = `${mat.c} Créditos`;
+    
+    // Convertir el nombre de la clase a un nombre legible
+    let nombreCategoria = "General";
+    if(mat.t === "cat-basico") nombreCategoria = "Básico / Pedagogía";
+    if(mat.t === "cat-practica") nombreCategoria = "Práctica Pedagógica";
+    if(mat.t === "cat-disciplinar") nombreCategoria = "Disciplinar / Didáctica";
+    if(mat.t === "cat-transversal") nombreCategoria = "Transversal / Generales";
+    if(mat.t === "cat-investigacion") nombreCategoria = "Investigación";
+    if(mat.t === "cat-electivo") nombreCategoria = "Electividad";
+    
+    document.getElementById('modal-categoria').innerText = nombreCategoria;
 
     document.getElementById('modal-overlay').classList.remove('oculto');
     document.getElementById('modal-detalle').classList.remove('oculto');
