@@ -16,7 +16,7 @@
                 <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('pantalla-bienvenida')">Inicio</button>
                 
                 <div class="nav-dropdown">
-                    <button class="nav-btn">Malla Completa <i class="fas fa-caret-down"></i></button>
+                    <button class="nav-btn">Mapa Completa <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
                         <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ed. Infantil (Bogotá)</a>
                         <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ed. Infantil (Cartagena)</a>
@@ -63,8 +63,12 @@
             </div>
         </section>
 
-        <section id="seleccion-programa" class="pantalla-oculta">
+<section id="seleccion-programa" class="pantalla-oculta">
             <div class="contenedor-facultad">
+                <button class="btn-volver" onclick="cambiarSeccion('pantalla-bienvenida')" style="margin-bottom: 20px;">
+                    <i class="fas fa-arrow-left"></i> Volver al Inicio
+                </button>
+                
                 <h2 class="titulo-facultad">Programas Académicos</h2>
                 <div class="grid-licenciaturas">
                     <div class="card-carrera card-infantil">
@@ -72,7 +76,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Educación Infantil (Bogotá)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -83,7 +87,7 @@
                         <div class="contenido-card">
                             <h2>Lic. en Educación Infantil (Cartagena)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -94,7 +98,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Educación Especial</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -105,7 +109,7 @@
                         <div class="contenido-card">
                             <h2>Lic. en Educación Infantil (Virtual)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -116,7 +120,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Etnoeducación (Virtual)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Ver Malla</button>
+                                <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -128,7 +132,10 @@
         <section id="mapa-general" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <header class="header-mapa">
-                    <h2>Malla Curricular Completa</h2>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <button class="btn-volver" onclick="cambiarSeccion('seleccion-programa')"><i class="fas fa-arrow-left"></i> Volver</button>
+                        <h2>Mapa Curricular Completa</h2>
+                    </div>
                     <span class="badget-programa" id="tag-general">Programa</span>
                 </header>
                 
@@ -148,7 +155,10 @@
         <section id="mapa-cronologico" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <header class="header-mapa">
-                    <h2>Ruta Académica Paso a Paso</h2>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <button class="btn-volver" onclick="cambiarSeccion('seleccion-programa')"><i class="fas fa-arrow-left"></i> Volver</button>
+                        <h2>Ruta Académica Paso a Paso</h2>
+                    </div>
                     <span class="badget-programa" id="tag-cronologico">Programa</span>
                 </header>
                 <div class="roadmap-vertical">
