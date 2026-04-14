@@ -154,3 +154,26 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 
 .info-row { display: flex; gap: 15px; }
 .info-row .info-item { flex: 1; margin-bottom: 0; }
+
+/* --- BOTÓN DE VOLVER --- */
+.btn-volver {
+    background-color: var(--amarillo-lib);
+    color: var(--color-institucional);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-volver:hover {
+    background-color: var(--color-institucional);
+    color: var(--blanco);
+    transform: translateX(-3px); /* Pequeño efecto de moverse hacia atrás */
+}
