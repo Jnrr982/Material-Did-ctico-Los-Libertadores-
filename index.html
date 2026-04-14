@@ -13,10 +13,10 @@
         <div class="nav-container">
             <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Logo-Los-Libertadores-3-1.png" alt="Logo Los Libertadores" class="logo-nav">
             <div class="nav-menus">
-                <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('seleccion-programa')">Inicio</button>
+                <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('pantalla-bienvenida')">Inicio</button>
                 
                 <div class="nav-dropdown">
-                    <button class="nav-btn">Mapa Completo <i class="fas fa-caret-down"></i></button>
+                    <button class="nav-btn">Malla Completa <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
                         <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ed. Infantil (Bogotá)</a>
                         <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ed. Infantil (Cartagena)</a>
@@ -42,16 +42,37 @@
 
     <main class="contenedor-plataforma">
         
-        <section id="seleccion-programa" class="pantalla-activa">
+        <section id="pantalla-bienvenida" class="pantalla-activa">
+            <div class="contenedor-facultad centrado-intro">
+                <h1 class="titulo-bienvenida">Bienvenido a tu Ruta Académica</h1>
+                <p class="intro-texto">
+                    Esta plataforma interactiva está diseñada para acompañarte y guiarte durante tu proceso formativo en la <strong>Fundación Universitaria Los Libertadores</strong>. Aquí podrás explorar los planes de estudio oficiales, visualizar la ruta cronológica de tu carrera paso a paso y consultar los detalles fundamentales de cada asignatura (como sus créditos, objetivos y requisitos). <br><br>Una herramienta pensada para facilitar tu planificación académica y asegurar tu éxito profesional.
+                </p>
+                
+                <h3 style="color: var(--color-institucional); margin-bottom: 25px; font-size: 1.3rem;">Selecciona tu Facultad para comenzar:</h3>
+                
+                <div class="grid-licenciaturas" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
+                    <div class="card-carrera" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80'); cursor: pointer;" onclick="cambiarSeccion('seleccion-programa')">
+                        <div class="overlay-card"></div>
+                        <div class="contenido-card">
+                            <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Facultad de Ciencias Humanas y Sociales</h2>
+                            <p style="color: var(--amarillo-lib); font-weight: bold; font-size: 1.1rem; margin-top: 15px;">Explorar Programas <i class="fas fa-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seleccion-programa" class="pantalla-oculta">
             <div class="contenedor-facultad">
-                <h2 class="titulo-facultad">Facultad de Ciencias Humanas y Sociales</h2>
+                <h2 class="titulo-facultad">Programas Académicos</h2>
                 <div class="grid-licenciaturas">
                     <div class="card-carrera card-infantil">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
                             <h2>Licenciatura en Educación Infantil (Bogotá)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ver Mapa</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -62,7 +83,7 @@
                         <div class="contenido-card">
                             <h2>Lic. en Educación Infantil (Cartagena)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ver Mapa</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -73,7 +94,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Educación Especial</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Ver Mapa</button>
+                                <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -84,7 +105,7 @@
                         <div class="contenido-card">
                             <h2>Lic. en Educación Infantil (Virtual)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ver Mapa</button>
+                                <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -95,7 +116,7 @@
                         <div class="contenido-card">
                             <h2>Licenciatura en Etnoeducación (Virtual)</h2>
                             <div class="botones-card">
-                                <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Ver Mapa</button>
+                                <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Ver Malla</button>
                                 <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
@@ -107,7 +128,7 @@
         <section id="mapa-general" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <header class="header-mapa">
-                    <h2>Mapa Curricular Completo</h2>
+                    <h2>Malla Curricular Completa</h2>
                     <span class="badget-programa" id="tag-general">Programa</span>
                 </header>
                 
