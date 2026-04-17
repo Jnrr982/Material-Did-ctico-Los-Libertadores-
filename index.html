@@ -13,8 +13,19 @@
         <div class="nav-container">
             <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Logo-Los-Libertadores-3-1.png" alt="Logo Los Libertadores" class="logo-nav">
             <div class="nav-menus">
-                <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('pantalla-bienvenida')">Inicio</button>
                 
+                <div class="nav-dropdown">
+                    <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('pantalla-bienvenida')">Inicio <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a onclick="cambiarSeccion('seleccion-programa')">Ver Todas las Facultades</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'seleccion-programa')">Ed. Infantil (Bogotá)</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'seleccion-programa')">Ed. Infantil (Cartagena)</a>
+                        <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'seleccion-programa')">Educación Especial</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'seleccion-programa')">Ed. Infantil (Virtual)</a>
+                        <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'seleccion-programa')">Etnoeducación (Virtual)</a>
+                    </div>
+                </div>
+
                 <div class="nav-dropdown">
                     <button class="nav-btn">Mapa Completo <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
@@ -36,6 +47,29 @@
                         <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-cronologico')">Etnoeducación (Virtual)</a>
                     </div>
                 </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-btn" id="btn-reglamento" onclick="cambiarSeccion('pantalla-reglamento')">Reglamento <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'pantalla-reglamento')">Ed. Infantil (Bogotá)</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'pantalla-reglamento')">Ed. Infantil (Cartagena)</a>
+                        <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'pantalla-reglamento')">Educación Especial</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'pantalla-reglamento')">Ed. Infantil (Virtual)</a>
+                        <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'pantalla-reglamento')">Etnoeducación (Virtual)</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-btn" id="btn-practica" onclick="cambiarSeccion('pantalla-practica')">Práctica <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'pantalla-practica')">Ed. Infantil (Bogotá)</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'pantalla-practica')">Ed. Infantil (Cartagena)</a>
+                        <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'pantalla-practica')">Educación Especial</a>
+                        <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'pantalla-practica')">Ed. Infantil (Virtual)</a>
+                        <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'pantalla-practica')">Etnoeducación (Virtual)</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </nav>
@@ -46,7 +80,7 @@
             <div class="contenedor-facultad centrado-intro">
                 <h1 class="titulo-bienvenida">Bienvenido a tu Ruta Académica</h1>
                 <p class="intro-texto">
-                    Esta plataforma interactiva está diseñada para acompañarte y guiarte durante tu proceso formativo en la <strong>Fundación Universitaria Los Libertadores</strong>. Aquí podrás explorar los planes de estudio oficiales, visualizar la ruta cronológica de tu carrera paso a paso y consultar los detalles fundamentales de cada asignatura (como sus créditos, objetivos y requisitos). <br><br>Una herramienta pensada para facilitar tu planificación académica y asegurar tu éxito profesional.
+                    Esta plataforma interactiva está diseñada para acompañarte y guiarte durante tu proceso formativo en la <strong>Fundación Universitaria Los Libertadores</strong>. Aquí podrás explorar los planes de estudio oficiales, visualizar la ruta cronológica de tu carrera paso a paso y consultar los detalles fundamentales de cada asignatura. <br><br>Una herramienta pensada para facilitar tu planificación académica y asegurar tu éxito profesional.
                 </p>
                 
                 <h3 style="color: var(--color-institucional); margin-bottom: 25px; font-size: 1.3rem;">Selecciona tu Facultad para comenzar:</h3>
@@ -63,7 +97,27 @@
             </div>
         </section>
 
-<section id="seleccion-programa" class="pantalla-oculta">
+        <section id="pantalla-reglamento" class="pantalla-oculta">
+            <div class="contenedor-facultad">
+                <h2 class="titulo-facultad">Reglamento Estudiantil</h2>
+                <h3 id="subtitulo-reglamento" style="color: var(--amarillo-lib); margin-bottom: 20px;"></h3>
+                <div class="info-texto">
+                    <p>En esta sección podrás consultar el reglamento vigente, tus derechos y deberes como estudiante de la institución específicos para tu programa.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pantalla-practica" class="pantalla-oculta">
+            <div class="contenedor-facultad">
+                <h2 class="titulo-facultad">Información de Práctica Pedagógica</h2>
+                <h3 id="subtitulo-practica" style="color: var(--amarillo-lib); margin-bottom: 20px;"></h3>
+                <div class="info-texto">
+                    <p>Aquí encontrarás los lineamientos, formatos de informe y requisitos para el desarrollo de tus prácticas pedagógicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="seleccion-programa" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <button class="btn-volver" onclick="cambiarSeccion('pantalla-bienvenida')" style="margin-bottom: 20px;">
                     <i class="fas fa-arrow-left"></i> Volver al Inicio
@@ -134,7 +188,7 @@
                 <header class="header-mapa">
                     <div style="display: flex; align-items: center; gap: 15px;">
                         <button class="btn-volver" onclick="cambiarSeccion('seleccion-programa')"><i class="fas fa-arrow-left"></i> Volver</button>
-                        <h2>Mapa Curricular Completa</h2>
+                        <h2>Mapa Curricular Completo</h2>
                     </div>
                     <span class="badget-programa" id="tag-general">Programa</span>
                 </header>
@@ -170,10 +224,8 @@
     </main>
 
     <div id="modal-overlay" class="oculto" onclick="cerrarModal()"></div>
-    
     <div id="modal-detalle" class="oculto">
         <button class="btn-cerrar-modal" onclick="cerrarModal()">×</button>
-        
         <div class="modal-header">
             <div class="modal-tags">
                 <span class="tag-modal" id="modal-tag-semestre">Semestre</span>
@@ -181,13 +233,11 @@
             </div>
             <h2 id="det-nombre">Nombre de la Asignatura</h2>
         </div>
-
         <div class="modal-body">
             <div class="info-item">
                 <strong><i class="fas fa-bullseye"></i> Objetivo:</strong>
                 <p id="det-objetivo">Cargando objetivo...</p>
             </div>
-            
             <div class="info-row">
                 <div class="info-item">
                     <strong><i class="fas fa-list-ul"></i> Requisitos:</strong>
