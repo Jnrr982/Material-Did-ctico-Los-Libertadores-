@@ -1,6 +1,6 @@
 let programaSeleccionado = "";
 
-// Base de datos completa estructurada: n = Nombre, c = Créditos, t = Clase CSS (Categoría)
+// Base de datos estructurada y limpia (Sin duplicados)
 const bdMaterias = {
     "Educación Infantil Bogotá": [
         [
@@ -46,12 +46,12 @@ const bdMaterias = {
             { n: "Seminario Investigación I", c: 2, t: "cat-investigacion" },
             { n: "Estadística y Probabilidad", c: 3, t: "cat-transversal" },
             { n: "Pedagogía para DDHH", c: 3, t: "cat-basico" },
-            { n: "Praxis Integral Primera Infancia", c: 3, t: "cat-practica" },
+            { n: "Praxis Integral Primera Infancia", c: 7, t: "cat-practica" },
             { n: "Saber Didáctico: Expresión Lúdica", c: 2, t: "cat-disciplinar" }
         ],
         [
             { n: "Diseños Metodológicos", c: 2, t: "cat-investigacion" },
-            { n: "Praxis Pedagógica Aúlica", c: 3, t: "cat-practica" },
+            { n: "Praxis Pedagógica Aúlica", c: 7, t: "cat-practica" },
             { n: "Saber Didáctico: Expresión Corporal", c: 2, t: "cat-disciplinar" },
             { n: "Seminario de Infancia", c: 3, t: "cat-investigacion" },
             { n: "Pensamiento Complejo", c: 3, t: "cat-transversal" }
@@ -60,7 +60,7 @@ const bdMaterias = {
             { n: "Seminario Investigación II", c: 2, t: "cat-investigacion" },
             { n: "Salud y Nutrición", c: 2, t: "cat-transversal" },
             { n: "Saber Didáctico: Pensamiento y Lenguaje", c: 2, t: "cat-disciplinar" },
-            { n: "Praxis Escenarios Familiares", c: 4, t: "cat-practica" },
+            { n: "Praxis Escenarios Familiares", c: 8, t: "cat-practica" },
             { n: "Electiva Formación Integral II", c: 3, t: "cat-electivo" }
         ],
         [
@@ -68,7 +68,7 @@ const bdMaterias = {
             { n: "Teaching English", c: 2, t: "cat-transversal" },
             { n: "Proyecto Pedagógico Flexible", c: 2, t: "cat-practica" },
             { n: "Políticas y Tendencias", c: 2, t: "cat-basico" },
-            { n: "Praxis Hospitalaria", c: 4, t: "cat-practica" }
+            { n: "Praxis Hospitalaria", c: 8, t: "cat-practica" }
         ]
     ],
     "Educación Infantil Cartagena": [
@@ -113,26 +113,26 @@ const bdMaterias = {
         ],
         [
             { n: "Pedagogía para DDHH", c: 3, t: "cat-basico" },
-            { n: "Praxis Integral", c: 4, t: "cat-practica" },
+            { n: "Praxis Integral", c: 7, t: "cat-practica" },
             { n: "Saber Didáctico: Lúdica", c: 3, t: "cat-disciplinar" },
             { n: "Seminario Investigación I", c: 3, t: "cat-investigacion" }
         ],
         [
             { n: "Seminario de Infancia", c: 3, t: "cat-investigacion" },
-            { n: "Praxis Pedagógica Aúlica", c: 3, t: "cat-practica" },
+            { n: "Praxis Pedagógica Aúlica", c: 7, t: "cat-practica" },
             { n: "Saber Didáctico: Corporal", c: 2, t: "cat-disciplinar" },
             { n: "Diseños Metodológicos", c: 3, t: "cat-investigacion" },
             { n: "Teaching English", c: 2, t: "cat-transversal" }
         ],
         [
-            { n: "Praxis Escenarios Familiares", c: 4, t: "cat-practica" },
+            { n: "Praxis Escenarios Familiares", c: 8, t: "cat-practica" },
             { n: "Salud y Nutrición", c: 3, t: "cat-transversal" },
             { n: "Saber Didáctico: Pensamiento", c: 3, t: "cat-disciplinar" },
             { n: "Seminario Investigación II", c: 3, t: "cat-investigacion" }
         ],
         [
             { n: "Políticas y Tendencias", c: 2, t: "cat-basico" },
-            { n: "Praxis Hospitalaria", c: 4, t: "cat-practica" },
+            { n: "Praxis Hospitalaria", c: 8, t: "cat-practica" },
             { n: "Proyecto Flexible", c: 3, t: "cat-practica" },
             { n: "Seminario Investigación III", c: 3, t: "cat-investigacion" }
         ]
@@ -179,28 +179,28 @@ const bdMaterias = {
         ],
         [
             { n: "Epistemología Diferencia", c: 2, t: "cat-basico" },
-            { n: "Praxis Enfoque Diferencial", c: 4, t: "cat-practica" },
+            { n: "Praxis Enfoque Diferencial", c: 7, t: "cat-practica" },
             { n: "Didácticas Ed. Especial", c: 3, t: "cat-disciplinar" },
             { n: "Seminario Investigación I", c: 2, t: "cat-investigacion" },
             { n: "Estadística y Probabilidad", c: 3, t: "cat-transversal" }
         ],
         [
             { n: "Currículo Diversidad", c: 2, t: "cat-basico" },
-            { n: "Praxis Discapacidad Intelectual", c: 3, t: "cat-practica" },
+            { n: "Praxis Discapacidad Intelectual", c: 7, t: "cat-practica" },
             { n: "Enseñanza Discap. Intelectual", c: 3, t: "cat-disciplinar" },
             { n: "Diseños Metodológicos", c: 2, t: "cat-investigacion" },
             { n: "Electiva Formación Integral II", c: 3, t: "cat-electivo" }
         ],
         [
             { n: "Transcurrir Vida y Contextos", c: 2, t: "cat-basico" },
-            { n: "Praxis Discapacidad Sensorial", c: 3, t: "cat-practica" },
+            { n: "Praxis Discapacidad Sensorial", c: 8, t: "cat-practica" },
             { n: "Enseñanza Discap. Sensorial", c: 2, t: "cat-disciplinar" },
             { n: "Seminario Investigación II", c: 2, t: "cat-investigacion" },
             { n: "Pensamiento Complejo", c: 3, t: "cat-transversal" }
         ],
         [
             { n: "Políticas Educativas Derecho", c: 2, t: "cat-basico" },
-            { n: "Praxis Discapacidad Motora", c: 4, t: "cat-practica" },
+            { n: "Praxis Discapacidad Motora", c: 8, t: "cat-practica" },
             { n: "Ambientes y DUA", c: 2, t: "cat-disciplinar" },
             { n: "Seminario Investigación III", c: 2, t: "cat-investigacion" },
             { n: "Teaching English", c: 2, t: "cat-transversal" }
@@ -243,7 +243,7 @@ const bdMaterias = {
         ],
         [
             { n: "Seminario de Infancias", c: 3, t: "cat-investigacion" },
-            { n: "Praxis Integral Primera Infancia", c: 5, t: "cat-practica" },
+            { n: "Praxis Integral Primera Infancia", c: 7, t: "cat-practica" },
             { n: "Saber Didáctico: Pensamiento", c: 2, t: "cat-disciplinar" },
             { n: "Metodología Cuantitativa", c: 3, t: "cat-investigacion" },
             { n: "Emprendimiento", c: 3, t: "cat-transversal" }
@@ -251,20 +251,20 @@ const bdMaterias = {
         [
             { n: "Políticas en Ed. Infantil", c: 2, t: "cat-basico" },
             { n: "Pedagogía DDHH", c: 3, t: "cat-basico" },
-            { n: "Praxis Pedagógica Aúlica", c: 4, t: "cat-practica" },
+            { n: "Praxis Pedagógica Aúlica", c: 7, t: "cat-practica" },
             { n: "Metodología Cualitativa", c: 3, t: "cat-investigacion" },
             { n: "Estadística y Probabilidad", c: 3, t: "cat-transversal" }
         ],
         [
             { n: "Infancias y Subjetividades", c: 3, t: "cat-basico" },
             { n: "Políticas y Lineamientos", c: 2, t: "cat-basico" },
-            { n: "Praxis Escenarios Rurales", c: 4, t: "cat-practica" },
+            { n: "Praxis Escenarios Rurales", c: 8, t: "cat-practica" },
             { n: "Saber Didáctico: Artística", c: 2, t: "cat-disciplinar" },
             { n: "Seminario Investigación I", c: 3, t: "cat-investigacion" }
         ],
         [
             { n: "Pedagogía Crítica y Social", c: 3, t: "cat-basico" },
-            { n: "Praxis Hospitalaria", c: 4, t: "cat-practica" },
+            { n: "Praxis Hospitalaria", c: 8, t: "cat-practica" },
             { n: "Salud y Nutrición", c: 2, t: "cat-transversal" },
             { n: "Teaching English", c: 2, t: "cat-transversal" },
             { n: "Seminario Investigación II", c: 3, t: "cat-investigacion" }
@@ -306,25 +306,25 @@ const bdMaterias = {
         [
             { n: "Evaluación", c: 3, t: "cat-basico" },
             { n: "Currículo y Gestión", c: 2, t: "cat-basico" },
-            { n: "Práctica Inmersión II", c: 5, t: "cat-practica" },
+            { n: "Práctica Inmersión II", c: 6, t: "cat-practica" },
             { n: "Lenguas Nativas III", c: 3, t: "cat-disciplinar" },
             { n: "Didácticas Etnoeducación", c: 3, t: "cat-disciplinar" }
         ],
         [
-            { n: "Práctica Pedagógica I", c: 5, t: "cat-practica" },
+            { n: "Práctica Pedagógica I", c: 8, t: "cat-practica" },
             { n: "Escuela Etnoeducativa", c: 3, t: "cat-disciplinar" },
             { n: "Etnomatemática", c: 3, t: "cat-disciplinar" },
             { n: "Seminario Investigación I", c: 2, t: "cat-investigacion" },
             { n: "Electiva II", c: 3, t: "cat-electivo" }
         ],
         [
-            { n: "Práctica Pedagógica II", c: 5, t: "cat-practica" },
+            { n: "Práctica Pedagógica II", c: 8, t: "cat-practica" },
             { n: "Legislación Educativa", c: 3, t: "cat-disciplinar" },
             { n: "Etnociencia", c: 3, t: "cat-disciplinar" },
             { n: "Seminario Investigación II", c: 3, t: "cat-investigacion" }
         ],
         [
-            { n: "Práctica Pedagógica III", c: 5, t: "cat-practica" },
+            { n: "Práctica Pedagógica III", c: 8, t: "cat-practica" },
             { n: "Identidad y Memoria", c: 3, t: "cat-disciplinar" },
             { n: "Etnoliteratura", c: 3, t: "cat-disciplinar" },
             { n: "Seminario Investigación III", c: 4, t: "cat-investigacion" }
@@ -349,39 +349,76 @@ function getEtiquetaTiempo(indice) {
     return `SEMESTRE ${indice + 1}`;
 }
 
+// ---------------------------------------------------------
+// FUNCIÓN CENTRAL PARA SELECCIÓN DESDE LOS DESPLEGABLES
+// ---------------------------------------------------------
 function seleccionarCarrera(programa, vistaId) {
     programaSeleccionado = programa;
-    document.getElementById('tag-general').innerText = `${programa}`;
-    document.getElementById('tag-cronologico').innerText = `${programa}`;
+
+    // Actualizamos los subtítulos de los Mapas
+    const tagGeneral = document.getElementById('tag-general');
+    if(tagGeneral) tagGeneral.innerText = `${programa}`;
+
+    const tagCronologico = document.getElementById('tag-cronologico');
+    if(tagCronologico) tagCronologico.innerText = `${programa}`;
+
+    // Actualizamos los subtítulos del Reglamento y la Práctica para que sean específicos de la carrera
+    const subReglamento = document.getElementById('subtitulo-reglamento');
+    if(subReglamento) subReglamento.innerText = `Programa: ${programa}`;
+
+    const subPractica = document.getElementById('subtitulo-practica');
+    if(subPractica) subPractica.innerText = `Programa: ${programa}`;
+
+    // Finalmente ejecutamos el cambio de sección normal
     cambiarSeccion(vistaId); 
 }
 
+// ---------------------------------------------------------
+// LA MAGIA DE LA NAVEGACIÓN
+// ---------------------------------------------------------
+const TODAS_LAS_SECCIONES = [
+    'pantalla-bienvenida',
+    'pantalla-reglamento',
+    'pantalla-practica',
+    'seleccion-programa',
+    'mapa-general',
+    'mapa-cronologico'
+];
+
 function cambiarSeccion(seccionId) {
-    // 1. Ocultar TODAS las pantallas (Ahora incluye la de bienvenida)
-    document.getElementById('pantalla-bienvenida').classList.remove('pantalla-activa');
-    document.getElementById('pantalla-bienvenida').classList.add('pantalla-oculta');
+    // 1. Apagar TODO de forma segura y automática
+    TODAS_LAS_SECCIONES.forEach(id => {
+        const elemento = document.getElementById(id);
+        if (elemento) {
+            elemento.classList.remove('pantalla-activa');
+            elemento.classList.add('pantalla-oculta');
+        }
+    });
 
-    document.getElementById('seleccion-programa').classList.remove('pantalla-activa');
-    document.getElementById('seleccion-programa').classList.add('pantalla-oculta');
+    // 2. Encender SOLO la pantalla que queremos ver
+    const destino = document.getElementById(seccionId);
+    if (destino) {
+        destino.classList.remove('pantalla-oculta');
+        destino.classList.add('pantalla-activa');
+    }
 
-    document.getElementById('mapa-general').classList.remove('pantalla-activa');
-    document.getElementById('mapa-general').classList.add('pantalla-oculta');
-
-    document.getElementById('mapa-cronologico').classList.remove('pantalla-activa');
-    document.getElementById('mapa-cronologico').classList.add('pantalla-oculta');
-
-    // 2. Mostrar SOLO la pantalla seleccionada
-    document.getElementById(seccionId).classList.remove('pantalla-oculta');
-    document.getElementById(seccionId).classList.add('pantalla-activa');
-
-    // 3. Quitar estado activo de los botones del menú superior
+    // 3. Quitar estado activo de todos los botones del menú superior
     const menus = document.querySelectorAll('.nav-institucional .nav-btn');
     menus.forEach(menu => menu.classList.remove('activo'));
 
-    // 4. Ejecutar funciones y marcar menú
+    // 4. Encender el botón del menú superior que corresponde según la vista
     if(seccionId === 'pantalla-bienvenida' || seccionId === 'seleccion-programa') {
-        document.getElementById('btn-inicio').classList.add('activo');
+        const btn = document.getElementById('btn-inicio');
+        if(btn) btn.classList.add('activo');
+    } else if(seccionId === 'pantalla-reglamento') {
+        const btn = document.getElementById('btn-reglamento');
+        if(btn) btn.classList.add('activo');
+    } else if(seccionId === 'pantalla-practica') {
+        const btn = document.getElementById('btn-practica');
+        if(btn) btn.classList.add('activo');
     }
+
+    // 5. Cargar los mapas si el usuario entró a uno de ellos
     if(seccionId === 'mapa-general') { 
         generarMapaGeneral(); 
     }
@@ -389,8 +426,10 @@ function cambiarSeccion(seccionId) {
         generarMapaCronologico(); 
     }
 
+    // Devolver al usuario arriba de la página
     window.scrollTo(0, 0);
 }
+// ---------------------------------------------------------
 
 function generarMapaGeneral() {
     const contenedor = document.getElementById('contenedor-malla-filas');
@@ -485,7 +524,7 @@ function verDetalle(indexSemestre, indexMateria) {
     // Requisitos lógicos
     let requisitoTexto = "Ninguno";
     if (indexSemestre > 0) {
-        requisitoTexto = "Aprobación de créditos del semestre anterior según lineamientos de la facultad.";
+        requisitoTexto = "Aprobación de créditos del periodo anterior según lineamientos de la facultad.";
     }
     if (mat.n.includes("Inglés") || mat.n.includes("Español") || mat.n.includes("Investigación") || mat.n.includes("Práctica")) {
         const num = mat.n.split(" ").pop();
