@@ -17,12 +17,7 @@
                 <div class="nav-dropdown">
                     <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('pantalla-bienvenida')">Inicio <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a onclick="cambiarSeccion('seleccion-programa')">Ver Todas las Facultades</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'seleccion-programa')">Ed. Infantil (Bogotá)</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'seleccion-programa')">Ed. Infantil (Cartagena)</a>
-                        <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'seleccion-programa')">Educación Especial</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'seleccion-programa')">Ed. Infantil (Virtual)</a>
-                        <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'seleccion-programa')">Etnoeducación (Virtual)</a>
+                        <a onclick="cambiarSeccion('seleccion-programa')">Facultad de Ciencias Humanas y Sociales</a>
                     </div>
                 </div>
 
@@ -51,22 +46,20 @@
                 <div class="nav-dropdown">
                     <button class="nav-btn" id="btn-reglamento" onclick="cambiarSeccion('pantalla-reglamento')">Reglamento <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'pantalla-reglamento')">Ed. Infantil (Bogotá)</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'pantalla-reglamento')">Ed. Infantil (Cartagena)</a>
-                        <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'pantalla-reglamento')">Educación Especial</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'pantalla-reglamento')">Ed. Infantil (Virtual)</a>
-                        <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'pantalla-reglamento')">Etnoeducación (Virtual)</a>
+                        <a onclick="cambiarSeccion('pantalla-reglamento')">Disposiciones Generales</a>
+                        <a onclick="cambiarSeccion('pantalla-reglamento')">Definiciones Clave</a>
+                        <a onclick="cambiarSeccion('pantalla-reglamento')">Derechos y Deberes</a>
+                        <a onclick="cambiarSeccion('pantalla-reglamento')">Régimen Disciplinario</a>
                     </div>
                 </div>
 
                 <div class="nav-dropdown">
                     <button class="nav-btn" id="btn-practica" onclick="cambiarSeccion('pantalla-practica')">Práctica <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'pantalla-practica')">Ed. Infantil (Bogotá)</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'pantalla-practica')">Ed. Infantil (Cartagena)</a>
-                        <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'pantalla-practica')">Educación Especial</a>
-                        <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'pantalla-practica')">Ed. Infantil (Virtual)</a>
-                        <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'pantalla-practica')">Etnoeducación (Virtual)</a>
+                        <a onclick="cambiarSeccion('pantalla-practica')">Lineamientos y Requisitos</a>
+                        <a onclick="cambiarSeccion('pantalla-practica')">Modalidades de Práctica</a>
+                        <a onclick="cambiarSeccion('pantalla-practica')">Formatos de Informe</a>
+                        <a onclick="cambiarSeccion('pantalla-practica')">Evaluación y Seguimiento</a>
                     </div>
                 </div>
 
@@ -83,14 +76,32 @@
                     Esta plataforma interactiva está diseñada para acompañarte y guiarte durante tu proceso formativo en la <strong>Fundación Universitaria Los Libertadores</strong>. Aquí podrás explorar los planes de estudio oficiales, visualizar la ruta cronológica de tu carrera paso a paso y consultar los detalles fundamentales de cada asignatura. <br><br>Una herramienta pensada para facilitar tu planificación académica y asegurar tu éxito profesional.
                 </p>
                 
-                <h3 style="color: var(--color-institucional); margin-bottom: 25px; font-size: 1.3rem;">Selecciona tu Facultad para comenzar:</h3>
+                <h3 style="color: var(--color-institucional); margin-bottom: 25px; font-size: 1.3rem; text-align: center;">Selecciona tu área de interés:</h3>
                 
-                <div class="grid-licenciaturas" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
+                <div style="max-width: 700px; margin: 0 auto;">
                     <div class="card-carrera" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80'); cursor: pointer;" onclick="cambiarSeccion('seleccion-programa')">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
                             <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Facultad de Ciencias Humanas y Sociales</h2>
                             <p style="color: var(--amarillo-lib); font-weight: bold; font-size: 1.1rem; margin-top: 15px;">Explorar Programas <i class="fas fa-arrow-right"></i></p>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div class="card-carrera" style="background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80'); cursor: pointer; height: 160px;" onclick="cambiarSeccion('pantalla-reglamento')">
+                            <div class="overlay-card" style="background: rgba(0, 100, 115, 0.85);"></div>
+                            <div class="contenido-card">
+                                <h3 style="color: white; margin: 0; font-size: 1.4rem;"><i class="fas fa-book"></i> Reglamento</h3>
+                                <p style="color: var(--amarillo-lib); font-weight: bold; font-size: 0.95rem; margin-top: 10px;">Normativa y deberes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card-carrera" style="background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80'); cursor: pointer; height: 160px;" onclick="cambiarSeccion('pantalla-practica')">
+                            <div class="overlay-card" style="background: rgba(0, 100, 115, 0.85);"></div>
+                            <div class="contenido-card">
+                                <h3 style="color: white; margin: 0; font-size: 1.4rem;"><i class="fas fa-chalkboard-teacher"></i> Prácticas</h3>
+                                <p style="color: var(--amarillo-lib); font-weight: bold; font-size: 0.95rem; margin-top: 10px;">Guía pedagógica</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,9 +111,71 @@
         <section id="pantalla-reglamento" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <h2 class="titulo-facultad">Reglamento Estudiantil</h2>
-                <h3 id="subtitulo-reglamento" style="color: var(--amarillo-lib); margin-bottom: 20px;"></h3>
                 <div class="info-texto">
-                    <p>En esta sección podrás consultar el reglamento vigente, tus derechos y deberes como estudiante de la institución específicos para tu programa.</p>
+                    <p>En esta sección podrás consultar la estructura del reglamento vigente aplicable a toda la comunidad estudiantil Libertadora.</p>
+                </div>
+
+                <h3 style="color: var(--color-institucional); margin-top: 50px; border-bottom: 2px solid var(--amarillo-lib); padding-bottom: 10px;">1. Disposiciones Generales</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-bullseye" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Alcance</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-balance-scale" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Criterios Orientadores</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--color-institucional); margin-top: 50px; border-bottom: 2px solid var(--amarillo-lib); padding-bottom: 10px;">2. Definiciones Claves</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-door-open" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Admisión</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-pause-circle" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Aplazamiento de Matrícula</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-calendar-alt" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Calendario Académico</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-times-circle" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Cancelación de Matrícula</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-clipboard-check" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Evaluación del Aprendizaje</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-exchange-alt" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Homologación</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Opción de Grado</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-hands-helping" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Programa PyGO</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-random" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Transferencias</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -110,9 +183,26 @@
         <section id="pantalla-practica" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <h2 class="titulo-facultad">Información de Práctica Pedagógica</h2>
-                <h3 id="subtitulo-practica" style="color: var(--amarillo-lib); margin-bottom: 20px;"></h3>
                 <div class="info-texto">
-                    <p>Aquí encontrarás los lineamientos, formatos de informe y requisitos para el desarrollo de tus prácticas pedagógicas.</p>
+                    <p>Encuentra aquí la estructura y herramientas clave para el desarrollo de tus prácticas profesionales y pedagógicas.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-file-contract" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Lineamientos y Requisitos</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-users-cog" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Modalidades de Práctica</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
+                    <div style="background: var(--gris-fondo); padding: 20px; border-radius: 10px; text-align: center; border-top: 4px solid var(--amarillo-lib); box-shadow: var(--sombra);">
+                        <i class="fas fa-file-alt" style="font-size: 2.5rem; color: var(--color-institucional); margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--color-institucional); margin-bottom: 10px; font-size: 1.2rem;">Formatos Institucionales</h3>
+                        <button class="btn-volver" style="margin-top: 15px; font-size: 0.9rem;">Ver Detalle</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -235,17 +325,17 @@
         </div>
         <div class="modal-body">
             <div class="info-item">
-                <strong><i class="fas fa-bullseye"></i> Objetivo:</strong>
-                <p id="det-objetivo">Cargando objetivo...</p>
+                <strong><i class="fas fa-bullseye"></i> Información:</strong>
+                <p id="det-objetivo">Cargando contenido...</p>
             </div>
             <div class="info-row">
-                <div class="info-item">
-                    <strong><i class="fas fa-list-ul"></i> Requisitos:</strong>
+                <div class="info-item" style="flex: 2;">
+                    <strong id="lbl-requisitos"><i class="fas fa-list-ul"></i> Requisitos:</strong>
                     <p id="det-requisitos">Ninguno</p>
                 </div>
-                <div class="info-item">
-                    <strong><i class="fas fa-star"></i> Créditos:</strong>
-                    <p id="det-creditos">0</p>
+                <div class="info-item" style="flex: 1; text-align: center;">
+                    <strong id="lbl-creditos"><i class="fas fa-star"></i> Créditos:</strong>
+                    <p id="det-creditos" style="font-size: 1.2rem; font-weight: bold; color: var(--color-institucional);">0</p>
                 </div>
             </div>
         </div>
