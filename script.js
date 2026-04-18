@@ -1,6 +1,10 @@
 let programaSeleccionado = "";
 
-// Base de datos estructurada y limpia (Sin duplicados)
+// ==========================================
+// 1. BASES DE DATOS
+// ==========================================
+
+// Base de datos de materias
 const bdMaterias = {
     "Educación Infantil Bogotá": [
         [
@@ -332,6 +336,99 @@ const bdMaterias = {
     ]
 };
 
+// Base de Datos de Reglamento
+const bdReglamento = {
+    "alcance": {
+        t: "Alcance",
+        d: "El Reglamento Estudiantil rige para todos los estudiantes de la Institución desde su inscripción (presencial, distancia y virtual) y en todos los niveles de formación, así como para los egresados.",
+        req: "Aplica a: Aspirantes, Estudiantes Activos y Egresados."
+    },
+    "criterios": {
+        t: "Criterios Orientadores",
+        d: "Se fundamenta en la integralidad, la participación, la garantía de derechos y el cumplimiento de las normas. Busca fortalecer el sentido de pertenencia y el compromiso como ciudadanos.",
+        req: "Base: Valores institucionales de responsabilidad y honradez."
+    },
+    "admision": {
+        t: "Admisión",
+        d: "Es el proceso mediante el cual la Institución evalúa si un inscrito reúne las condiciones para ser admitido y autoriza su matrícula.",
+        req: "Notificación: A través del correo electrónico."
+    },
+    "aplazamiento": {
+        t: "Aplazamiento de Matrícula",
+        d: "Acto mediante el cual el estudiante solicita autorización para suspender su proceso formativo en el período lectivo en el cual se matriculó.",
+        req: "Trámite: Solicitud formal ante la dependencia encargada."
+    },
+    "calendario": {
+        t: "Calendario Académico",
+        d: "Organización y programación de las actividades académicas, administrativas y de apoyo aprobadas por el Consejo Superior.",
+        req: "Aplica a: Toda la comunidad educativa."
+    },
+    "cancelacion": {
+        t: "Cancelación de Matrícula",
+        d: "Acto de retirar todos los espacios académicos matriculados en un período. Procede durante el período vigente y hasta el último día de clases.",
+        req: "Límite: Hasta el último día de clase del calendario."
+    },
+    "evaluacion": {
+        t: "Evaluación del Aprendizaje",
+        d: "Proceso permanente para estimular la formación integral mediante la apreciación de competencias adquiridas. Se califica de 0.0 a 5.0 (Aprobación mínima 3.0).",
+        req: "Cortes: 30% primer parcial, 30% segundo parcial, 40% final."
+    },
+    "homologacion": {
+        t: "Homologación",
+        d: "Proceso donde las facultades reconocen cursos aprobados en otras IES reconocidas por el MEN o extranjeras, o internamente. Límite máximo: 60% de los créditos.",
+        req: "Nota Mínima para Homologar: 3.0 sobre 5.0."
+    },
+    "opcion-grado": {
+        t: "Opción de Grado",
+        d: "Requisito para aplicar competencias en la solución de problemas. Tipos: Proyecto, Cursos Coterminales, Pasantía, Seminario o Creación de Empresa.",
+        req: "Calificación: Aprobado (3.5 a 5.0) o Reprobado (0.0 a 3.4)."
+    },
+    "pygo": {
+        t: "Programa PyGO",
+        d: "Programa de Permanencia y Graduación Oportuna, liderado por Bienestar Universitario para apoyar a estudiantes en su logro académico y mitigar factores de riesgo.",
+        req: "Aplica: Especialmente si el promedio semestral baja de 3.5."
+    },
+    "transferencias": {
+        t: "Transferencias",
+        d: "Puede ser Externa (de otra IES) o Interna (cambio de programa dentro de Los Libertadores). Se requiere análisis de contenidos y disponibilidad de cupo.",
+        req: "Tiempo de Respuesta: 8 días hábiles (Interna) / 10 días (Externa)."
+    },
+    "derechos": {
+        t: "Derechos y Deberes",
+        d: "Derecho a recibir formación integral, expresar ideas y trato digno. Deber de acatar reglamentos, respetar a la comunidad y cuidar la infraestructura.",
+        req: "Documento: Presentar el Carné Estudiantil siempre."
+    },
+    "disciplinario": {
+        t: "Régimen Disciplinario",
+        d: "Busca formar egresados respetuosos. Las faltas se clasifican en Leves, Graves y Muy Graves. Sanciones: Amonestación, Matrícula Condicional, Suspensión o Cancelación.",
+        req: "Garantías: Debido proceso, defensa y recursos de apelación."
+    }
+};
+
+// Base de Datos de Prácticas
+const bdPracticas = {
+    "lineamientos": {
+        t: "Lineamientos y Requisitos",
+        d: "Las prácticas son un espacio de intervención profesional obligatoria. No generan relación laboral (salvo contrato de aprendizaje). Deben tener aval del Director de Departamento.",
+        req: "Requisito: Afiliación obligatoria a ARL."
+    },
+    "modalidades": {
+        t: "Modalidades de Práctica",
+        d: "Opciones: Empresarial, Social, Investigativa, Intra-laboral (proyecto de mejora donde ya trabaja), Internacional, Emprendimiento o Interna.",
+        req: "Duración y Créditos: Según plan de estudios vigente."
+    },
+    "formatos": {
+        t: "Formatos de Informe",
+        d: "Se requiere la firma de un convenio o alianza (Convenio Marco, Específico). El estudiante debe entregar informes de seguimiento establecidos por su Facultad.",
+        req: "Supervisión: Un tutor académico y un supervisor en la empresa."
+    },
+    "evaluacion": {
+        t: "Evaluación y Seguimiento",
+        d: "La práctica es un espacio académico que requiere calificación. El centro de práctica debe certificar las horas, lo cual apoyará la hoja de vida del estudiante.",
+        req: "Aprobación: Según normas de evaluación (Mínimo 3.0)."
+    }
+};
+
 // Objeto para generar objetivos automáticos según la categoría
 const objetivosPorCategoria = {
     "cat-basico": "Proporcionar los fundamentos teóricos, históricos y pedagógicos esenciales para el desarrollo del perfil docente.",
@@ -342,6 +439,11 @@ const objetivosPorCategoria = {
     "cat-electivo": "Permitir la flexibilidad del currículo para que el estudiante profundice en áreas de su interés personal y profesional."
 };
 
+
+// ==========================================
+// 2. UTILIDADES
+// ==========================================
+
 function getEtiquetaTiempo(indice) {
     if (programaSeleccionado.includes("Virtual")) {
         return `SEMESTRE ${indice + 1}`;
@@ -349,33 +451,29 @@ function getEtiquetaTiempo(indice) {
     return `SEMESTRE ${indice + 1}`;
 }
 
-// ---------------------------------------------------------
-// FUNCIÓN CENTRAL PARA SELECCIÓN DESDE LOS DESPLEGABLES
-// ---------------------------------------------------------
+
+// ==========================================
+// 3. NAVEGACIÓN Y SELECCIÓN
+// ==========================================
+
 function seleccionarCarrera(programa, vistaId) {
     programaSeleccionado = programa;
 
-    // Actualizamos los subtítulos de los Mapas
     const tagGeneral = document.getElementById('tag-general');
     if(tagGeneral) tagGeneral.innerText = `${programa}`;
 
     const tagCronologico = document.getElementById('tag-cronologico');
     if(tagCronologico) tagCronologico.innerText = `${programa}`;
 
-    // Actualizamos los subtítulos del Reglamento y la Práctica para que sean específicos de la carrera
     const subReglamento = document.getElementById('subtitulo-reglamento');
     if(subReglamento) subReglamento.innerText = `Programa: ${programa}`;
 
     const subPractica = document.getElementById('subtitulo-practica');
     if(subPractica) subPractica.innerText = `Programa: ${programa}`;
 
-    // Finalmente ejecutamos el cambio de sección normal
     cambiarSeccion(vistaId); 
 }
 
-// ---------------------------------------------------------
-// LA MAGIA DE LA NAVEGACIÓN
-// ---------------------------------------------------------
 const TODAS_LAS_SECCIONES = [
     'pantalla-bienvenida',
     'pantalla-reglamento',
@@ -386,7 +484,7 @@ const TODAS_LAS_SECCIONES = [
 ];
 
 function cambiarSeccion(seccionId) {
-    // 1. Apagar TODO de forma segura y automática
+    // Apagar TODO
     TODAS_LAS_SECCIONES.forEach(id => {
         const elemento = document.getElementById(id);
         if (elemento) {
@@ -395,18 +493,18 @@ function cambiarSeccion(seccionId) {
         }
     });
 
-    // 2. Encender SOLO la pantalla que queremos ver
+    // Encender SOLO la destino
     const destino = document.getElementById(seccionId);
     if (destino) {
         destino.classList.remove('pantalla-oculta');
         destino.classList.add('pantalla-activa');
     }
 
-    // 3. Quitar estado activo de todos los botones del menú superior
+    // Limpiar botones menú
     const menus = document.querySelectorAll('.nav-institucional .nav-btn');
     menus.forEach(menu => menu.classList.remove('activo'));
 
-    // 4. Encender el botón del menú superior que corresponde según la vista
+    // Activar botón superior correcto
     if(seccionId === 'pantalla-bienvenida' || seccionId === 'seleccion-programa') {
         const btn = document.getElementById('btn-inicio');
         if(btn) btn.classList.add('activo');
@@ -418,18 +516,17 @@ function cambiarSeccion(seccionId) {
         if(btn) btn.classList.add('activo');
     }
 
-    // 5. Cargar los mapas si el usuario entró a uno de ellos
-    if(seccionId === 'mapa-general') { 
-        generarMapaGeneral(); 
-    }
-    if(seccionId === 'mapa-cronologico') { 
-        generarMapaCronologico(); 
-    }
+    // Cargar mapas si es necesario
+    if(seccionId === 'mapa-general') generarMapaGeneral(); 
+    if(seccionId === 'mapa-cronologico') generarMapaCronologico(); 
 
-    // Devolver al usuario arriba de la página
     window.scrollTo(0, 0);
 }
-// ---------------------------------------------------------
+
+
+// ==========================================
+// 4. GENERACIÓN DE MAPAS
+// ==========================================
 
 function generarMapaGeneral() {
     const contenedor = document.getElementById('contenedor-malla-filas');
@@ -448,10 +545,7 @@ function generarMapaGeneral() {
         materiasDelSemestre.forEach((mat, indexMateria) => {
             const divMateria = document.createElement('div');
             divMateria.className = `materia-cell ${mat.t}`; 
-
-            // Pasamos los índices para buscar la materia en la base de datos de forma segura
-            divMateria.onclick = () => verDetalle(indexSemestre, indexMateria);
-
+            divMateria.onclick = () => verDetalleMateria(indexSemestre, indexMateria);
             divMateria.innerHTML = `
                 ${mat.n}
                 <span class="badge-creditos">${mat.c} Cr.</span>
@@ -479,7 +573,7 @@ function generarMapaCronologico() {
         let listaMateriasHtml = "";
         materiasDelSemestre.forEach((mat, indexMateria) => {
             listaMateriasHtml += `
-            <div class="materia-roadmap ${mat.t}" onclick="verDetalle(${indexSemestre}, ${indexMateria})">
+            <div class="materia-roadmap ${mat.t}" onclick="verDetalleMateria(${indexSemestre}, ${indexMateria})">
                 <span>${mat.n}</span>
                 <span class="badge-creditos" style="position:static;">${mat.c} Cr.</span>
             </div>`;
@@ -498,16 +592,19 @@ function generarMapaCronologico() {
     });
 }
 
-// Función encargada de llenar el modal con la info correcta
-function verDetalle(indexSemestre, indexMateria) {
+
+// ==========================================
+// 5. GESTIÓN DE MODALES
+// ==========================================
+
+// Detalle para Materias
+function verDetalleMateria(indexSemestre, indexMateria) {
     const mat = bdMaterias[programaSeleccionado][indexSemestre][indexMateria];
 
-    // Nombres y Créditos
     document.getElementById('det-nombre').innerText = mat.n;
     document.getElementById('det-creditos').innerText = mat.c;
     document.getElementById('modal-tag-semestre').innerText = `${getEtiquetaTiempo(indexSemestre)} - ${programaSeleccionado}`;
 
-    // Categoría visual
     let nombreCategoria = "General";
     if(mat.t === "cat-basico") nombreCategoria = "Básico / Pedagogía";
     if(mat.t === "cat-practica") nombreCategoria = "Práctica Pedagógica";
@@ -517,24 +614,70 @@ function verDetalle(indexSemestre, indexMateria) {
     if(mat.t === "cat-electivo") nombreCategoria = "Electividad";
 
     document.getElementById('det-categoria').innerText = nombreCategoria;
+    document.getElementById('det-categoria').style.display = "inline-block";
 
-    // Asignar objetivo automático basado en su categoría
     document.getElementById('det-objetivo').innerText = objetivosPorCategoria[mat.t] || "Desarrollar competencias integrales según el plan de estudios.";
 
-    // Requisitos lógicos
     let requisitoTexto = "Ninguno";
-    if (indexSemestre > 0) {
-        requisitoTexto = "Aprobación de créditos del periodo anterior según lineamientos de la facultad.";
-    }
+    if (indexSemestre > 0) requisitoTexto = "Aprobación de créditos del periodo anterior según lineamientos.";
     if (mat.n.includes("Inglés") || mat.n.includes("Español") || mat.n.includes("Investigación") || mat.n.includes("Práctica")) {
         const num = mat.n.split(" ").pop();
-        if(num === "II" || num === "III" || num === "IV") {
-            requisitoTexto = "Aprobación del nivel anterior de esta misma asignatura.";
-        }
+        if(["II", "III", "IV"].includes(num)) requisitoTexto = "Aprobación del nivel anterior de esta misma asignatura.";
     }
+
+    document.getElementById('lbl-requisitos').innerText = "Requisitos:";
     document.getElementById('det-requisitos').innerText = requisitoTexto;
 
-    // Mostrar el modal
+    document.getElementById('lbl-creditos').style.display = "block";
+    document.getElementById('det-creditos').style.display = "block";
+
+    abrirModal();
+}
+
+// Detalle para Reglamento
+function mostrarDetalleReglamento(clave) {
+    const info = bdReglamento[clave];
+    if(!info) return;
+
+    document.getElementById('det-nombre').innerText = info.t;
+    document.getElementById('modal-tag-semestre').innerText = "Reglamento Estudiantil";
+    document.getElementById('det-categoria').style.display = "none"; // Ocultar tag de categoría
+
+    document.getElementById('det-objetivo').innerText = info.d;
+
+    document.getElementById('lbl-requisitos').innerText = "Consideraciones:";
+    document.getElementById('det-requisitos').innerText = info.req;
+
+    // Ocultar la caja de créditos porque no aplica
+    document.getElementById('lbl-creditos').style.display = "none";
+    document.getElementById('det-creditos').style.display = "none";
+
+    abrirModal();
+}
+
+// Detalle para Prácticas
+function mostrarDetallePractica(clave) {
+    const info = bdPracticas[clave];
+    if(!info) return;
+
+    document.getElementById('det-nombre').innerText = info.t;
+    document.getElementById('modal-tag-semestre').innerText = "Práctica Pedagógica";
+    document.getElementById('det-categoria').style.display = "none";
+
+    document.getElementById('det-objetivo').innerText = info.d;
+
+    document.getElementById('lbl-requisitos').innerText = "Notas Importantes:";
+    document.getElementById('det-requisitos').innerText = info.req;
+
+    // Ocultar caja de créditos
+    document.getElementById('lbl-creditos').style.display = "none";
+    document.getElementById('det-creditos').style.display = "none";
+
+    abrirModal();
+}
+
+// Funciones Generales del Modal
+function abrirModal() {
     document.getElementById('modal-overlay').classList.remove('oculto');
     document.getElementById('modal-detalle').classList.remove('oculto');
 }
@@ -546,4 +689,10 @@ function cerrarModal() {
 
 window.onload = function() {
     cerrarModal();
+    const overlay = document.getElementById('modal-overlay');
+    if(overlay) {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) cerrarModal();
+        });
+    }
 };
