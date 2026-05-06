@@ -1,4 +1,4 @@
-let programaSeleccionado = "";
+window.programaSeleccionado = window.programaSeleccionado || "";
 
 // ==========================================
 // 1. BASES DE DATOS
@@ -337,17 +337,17 @@ const bdMaterias = {
 };
 
 // Base de Datos de Reglamento
-const bdReglamento = {
-    "alcance": {
-        t: "Alcance",
-        d: "El Reglamento Estudiantil rige para todos los estudiantes de la Institución desde su inscripción (presencial, distancia y virtual) y en todos los niveles de formación, así como para los egresados.",
-        req: "Aplica a: Aspirantes, Estudiantes Activos y Egresados."
-    },
-    "criterios": {
-        t: "Criterios Orientadores",
-        d: "Se fundamenta en la integralidad, la participación, la garantía de derechos y el cumplimiento de las normas. Busca fortalecer el sentido de pertenencia y el compromiso como ciudadanos.",
-        req: "Base: Valores institucionales de responsabilidad y honradez."
-    },
+    const bdReglamento = {
+        "alcance": {
+            t: "Alcance",
+            d: "El Reglamento Estudiantil aplica a todos los estudiantes de la Institución desde el momento de su inscripción. Rige para todas las metodologías (presencial, distancia y virtual), todos los niveles académicos (técnico hasta posgrado) y también para los egresados.",
+            req: "Aplica a: Aspirantes, Estudiantes Activos y Egresados."
+        },
+        "criterios": {
+            t: "Criterios Orientadores",
+            d: "Se fundamenta en la integralidad, participación, garantía de derechos y cumplimiento de normas. Busca fortalecer el sentido de pertenencia y que el estudiante asuma un compromiso activo como ciudadano para fortalecer el tejido social.",
+            req: "Base: Valores institucionales, responsabilidad y honradez."
+        },
     "admision": {
         t: "Admisión",
         d: "Es el proceso mediante el cual la Institución evalúa si un inscrito reúne las condiciones para ser admitido y autoriza su matrícula.",
@@ -635,24 +635,34 @@ function verDetalleMateria(indexSemestre, indexMateria) {
 }
 
 // Detalle para Reglamento
-function mostrarDetalleReglamento(clave) {
-    const info = bdReglamento[clave];
-    if(!info) return;
+async function mostrarDetalleReglamento(idCapitulo) {
+    try {
+        // 1. Cargamos el archivo JSON
+        const respuesta = await fetch('reglamento.json');
+        const datos = await respuesta.json();
+        const info = datos[idCapitulo];
 
-    document.getElementById('det-nombre').innerText = info.t;
-    document.getElementById('modal-tag-semestre').innerText = "Reglamento Estudiantil";
-    document.getElementById('det-categoria').style.display = "none"; // Ocultar tag de categoría
+        if (info) {
+            // 2. Llenamos los elementos del modal que ya tienes en el HTML
+            document.getElementById('det-nombre').innerText = info.titulo;
+            document.getElementById('det-categoria').innerText = info.categoria;
+            document.getElementById('det-objetivo').innerText = info.contenido;
 
-    document.getElementById('det-objetivo').innerText = info.d;
+            // Reutilizamos el campo de requisitos para mostrar los artículos
+            document.getElementById('lbl-requisitos').innerHTML = '<i class="fas fa- paragraphs"></i> Artículos:';
+            document.getElementById('det-requisitos').innerText = info.articulos;
 
-    document.getElementById('lbl-requisitos').innerText = "Consideraciones:";
-    document.getElementById('det-requisitos').innerText = info.req;
+            // Ocultamos la columna de créditos ya que no aplica al reglamento
+            document.getElementById('columna-creditos').style.display = 'none';
 
-    // Ocultar la caja de créditos porque no aplica
-    document.getElementById('lbl-creditos').style.display = "none";
-    document.getElementById('det-creditos').style.display = "none";
-
-    abrirModal();
+            // 3. Mostramos el modal
+            document.getElementById('modal-overlay').classList.remove('oculto');
+            document.getElementById('modal-detalle').classList.remove('oculto');
+        }
+    } catch (error) {
+        console.error("Error cargando el reglamento:", error);
+        alert("No se pudo cargar la información del capítulo.");
+    }
 }
 
 // Detalle para Prácticas
