@@ -284,3 +284,180 @@ body {
     background-color: var(--color-institucional);
     color: var(--blanco); transform: translateX(-3px); 
 }
+
+/* ==========================================
+   FOOTER INSTITUCIONAL
+   ========================================== */
+.main-footer {
+    width: 100%;
+    background-color: #f7f7f7; /* Gris claro de fondo */
+    color: #666;
+    margin-top: 50px;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sede-info {
+    flex: 1;
+    max-width: 400px;
+}
+
+.sede-title {
+    color: #138d8f; /* Verde azulado Libertadores */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid #dcdcdc; /* Línea separadora */
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.info-list li:last-child {
+    border-bottom: none; /* Quita la línea al último elemento */
+}
+
+/* Estilos de los íconos */
+.info-list i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    margin-top: 3px;
+    width: 20px;
+    text-align: center;
+}
+
+.icon-teal {
+    color: #138d8f;
+}
+
+.icon-green {
+    color: #25D366; /* Verde de WhatsApp */
+}
+
+.horario {
+    display: flex;
+    flex-direction: column;
+}
+
+.horario strong {
+    color: #777;
+    font-weight: 600;
+}
+
+.horario p {
+    margin: 10px 0 0 0;
+    color: #888;
+}
+
+/* Franja inferior oscura */
+.footer-legal {
+    background-color: #006473; /* Verde oscuro institucional */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 15px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.footer-legal p {
+    margin: 5px 0;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+    .footer-contact {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+    .sede-info {
+        width: 100%;
+    }
+}
+
+/* Cuadrícula de temas */
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo de cada cuadrito */
+.tarjeta {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.tarjeta:hover {
+    background: white;
+    transform: translateY(-5px);
+    border-color: var(--amarillo-lib);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.tarjeta .icono {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.tarjeta .titulo-sec {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.2;
+}
+
+/* Caja donde aparece la información */
+.detalle-box {
+    background: #fff;
+    border: 2px solid #f0f0f0;
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 150px;
+    line-height: 1.8;
+    color: #444;
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ajusta el valor (80px) según la altura de tu encabezado real */
+h3[id^="parte"] {
+    scroll-margin-top: 100px; 
+}
