@@ -1,0 +1,192 @@
+                    <!DOCTYPE html>
+                    <html lang="es">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Reglamento Estudiantil - Los Libertadores</title>
+                        <!-- Vinculamos tu CSS principal para heredar todos los colores y estilos -->
+                        <link rel="stylesheet" href="style.css">
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+                    </head>
+                    <body class="bg-libreria"> <!-- Usamos la clase de fondo que tengas en tu style.css -->
+
+                        <nav class="nav-institucional">
+                            <div class="nav-container">
+                                <a href="index.html">
+                                    <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Logo-Los-Libertadores-3-1.png" alt="Logo Los Libertadores" class="logo-nav">
+                                </a>
+                                <div class="nav-menus">
+
+                                    <!-- Menú: Inicio -->
+                                    <div class="nav-dropdown">
+                                        <button class="nav-btn" onclick="window.location.href='index.html'">Inicio <i class="fas fa-caret-down"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="index.html?seccion=seleccion-programa">Facultad de Ciencias Humanas y Sociales</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Menú: Mapa Completo -->
+                                    <div class="nav-dropdown">
+                                        <button class="nav-btn">Mapa Completo <i class="fas fa-caret-down"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="index.html?carrera=Educación Infantil Bogotá&modo=mapa-general">Ed. Infantil (Bogotá)</a>
+                                            <a href="index.html?carrera=Educación Infantil Cartagena&modo=mapa-general">Ed. Infantil (Cartagena)</a>
+                                            <a href="index.html?carrera=Educación Especial Bogotá&modo=mapa-general">Educación Especial</a>
+                                            <a href="index.html?carrera=Educación Infantil Virtual&modo=mapa-general">Ed. Infantil (Virtual)</a>
+                                            <a href="index.html?carrera=Etnoeducación Virtual&modo=mapa-general">Etnoeducación (Virtual)</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Menú: Ruta Cronológica -->
+                                    <div class="nav-dropdown">
+                                        <button class="nav-btn">Ruta Cronológica <i class="fas fa-caret-down"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="index.html?carrera=Educación Infantil Bogotá&modo=mapa-cronologico">Ed. Infantil (Bogotá)</a>
+                                            <a href="index.html?carrera=Educación Infantil Cartagena&modo=mapa-cronologico">Ed. Infantil (Cartagena)</a>
+                                            <a href="index.html?carrera=Educación Especial Bogotá&modo=mapa-cronologico">Educación Especial</a>
+                                            <a href="index.html?carrera=Educación Infantil Virtual&modo=mapa-cronologico">Ed. Infantil (Virtual)</a>
+                                            <a href="index.html?carrera=Etnoeducación Virtual&modo=mapa-cronologico">Etnoeducación (Virtual)</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Menú: Reglamento -->
+                                    <div class="nav-dropdown">
+                                        <button class="nav-btn" id="btn-reglamento" onclick="cambiarSeccion('pantalla-reglamento')">
+                                            Reglamento <i class="fas fa-caret-down"></i>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <!-- Usamos location.hash para saltar al ID -->
+                                            <a onclick="cambiarSeccion('pantalla-reglamento'); location.hash='#parte1'">Parte I: Fundamentos y Admisiones</a>
+                                            <a onclick="cambiarSeccion('pantalla-reglamento'); location.hash='#parte2'">Parte II: Régimen Académico</a>
+                                            <a onclick="cambiarSeccion('pantalla-reglamento'); location.hash='#parte3'">Parte III: Permanencia y Estímulos</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Menú: Práctica -->
+                                    <div class="nav-dropdown">
+                                        <button class="nav-btn" onclick="window.location.href='index.html?seccion=pantalla-practica'">Práctica <i class="fas fa-caret-down"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="index.html?seccion=pantalla-practica">Lineamientos y Requisitos</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </nav>
+
+                        <!-- ========================================== -->
+                        <!-- CONTENIDO PRINCIPAL (Estilo Tarjeta Blanca) -->
+                        <!-- ========================================== -->
+                                <main style="padding: 40px 20px; min-height: 70vh;">
+                                    <!-- Agregamos el id="contenedor-principal" aquí -->
+                                    <div id="contenedor-principal" style="max-width: 900px; margin: 0 auto; background: white; padding: 50px; border-radius: 15px; box-shadow: var(--sombra); border-top: 8px solid var(--amarillo-lib);">
+
+                                <!-- Botón de regreso -->
+                                <button class="btn-volver" onclick="window.location.href='index.html?seccion=pantalla-reglamento'" style="margin-bottom: 20px;">
+                                    <i class="fas fa-arrow-left"></i> Volver a la Ruta Académica
+                                </button>
+
+                                <!-- Cabecera dinámica -->
+                                <header style="margin-bottom: 30px;">
+                                    <span id="cap-categoria" style="color: #666; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Cargando...</span>
+                                    <h1 id="cap-titulo" style="color: var(--color-institucional); font-size: 2.2rem; margin-top: 10px; line-height: 1.2;">Seleccione un Capítulo</h1>
+                                    <div style="width: 60px; height: 4px; background: var(--amarillo-lib); margin-top: 15px;"></div>
+                                </header>
+
+                                <!-- NUEVO: Contenedor de Tarjetas Interactivas -->
+                                <div id="contenedor-tarjetas" class="grid-tarjetas" style="margin-bottom: 40px;">
+                                    <!-- Aquí el JS inyectará los cuadritos -->
+                                </div>
+
+                                <!-- NUEVO: Caja de Detalle (Aquí se lee la info al dar click) -->
+                                <div id="contenedor-detalle" class="detalle-box">
+                                    <div style="text-align: center; color: #888; padding: 20px;">
+                                        <i class="fas fa-mouse-pointer" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                                        Haz clic en un apartado de arriba para ver el contenido detallado.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </main>
+                        
+                        <!-- ========================================== -->
+                        <!-- FOOTER INSTITUCIONAL -->
+                        <!-- ========================================== -->
+                        <footer class="main-footer">
+                            <div class="footer-contact">
+
+                                <!-- Columna: Sede Bogotá -->
+                                <div class="sede-info">
+                                    <h3 class="sede-title">Sede Bogotá</h3>
+                                    <ul class="info-list">
+                                        <li>
+                                            <i class="fas fa-location-arrow icon-teal"></i> 
+                                            <span>Carrera 16 # 63 A - 68</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-phone icon-teal"></i> 
+                                            <span><strong>Línea nacional :</strong> 018000411361</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-phone icon-teal"></i> 
+                                            <span><strong>PBX:</strong> (601) 254 47 50</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-envelope icon-teal"></i> 
+                                            <span><strong>Correo Inscripciones :</strong><br>inscripciones@libertadores.edu.co</span>
+                                        </li>
+                                        <li>
+                                            <i class="fab fa-whatsapp icon-green"></i> 
+                                            <span><strong>WhatsApp:</strong> 318 500 6666</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-clock icon-teal"></i>
+                                            <div class="horario">
+                                                <strong>Horario de atención</strong>
+                                                <p><strong>Lunes:</strong><br>de 8:00 a.m. a 1:00 p.m.,<br>y de 2:00 p.m. a 6:00 p.m.</p>
+                                                <p><strong>Martes a viernes:</strong><br>de 8:00 a.m. a 1:00 p.m.,<br>y de 2:00 p.m. a 5:30 p.m.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Columna: Sede Cartagena -->
+                                <div class="sede-info">
+                                    <h3 class="sede-title">Sede Cartagena</h3>
+                                    <ul class="info-list">
+                                        <li>
+                                            <i class="fas fa-location-arrow icon-teal"></i> 
+                                            <span>Calle 31 No. 19 - 51<br>Barrio Pie de la Popa</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-phone icon-teal"></i> 
+                                            <span><strong>PBX:</strong> (605) 6545253</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-clock icon-teal"></i>
+                                            <div class="horario">
+                                                <strong>Horario de atención</strong>
+                                                <p><strong>Lunes a viernes:</strong><br>8:00 a.m. a 1:00 p.m.,<br>y de 2:00 p.m. a 7:00 p.m.</p>
+                                                <p><strong>Sábados:</strong><br>de 9:00 a.m. a 12:00 p.m.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-envelope icon-teal"></i> 
+                                            <span style="color: #138d8f;">fullatencion@libertadores.edu.co</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Franja de Derechos de Autor -->
+                            <div class="footer-legal">
+                                <p>Copyright © 2026 Fundación Universitaria Los Libertadores | Institución Universitaria | Vigilada Mineducación | Personería Jurídica Resolución 7542 de mayo de 1982</p>
+                                <p>Acreditación Institucional en Alta Calidad Resolución 015638 del 5 de agosto de 2022, Ministerio de Educación Nacional.</p>
+                            </div>
+                        </footer>
+
+                        <!-- LÓGICA DE CARGA -->
+                        <!-- Al final, antes de </body> -->
+                        <script src="script-reglamento.js"></script>
+                    </body>
+                    </html>
