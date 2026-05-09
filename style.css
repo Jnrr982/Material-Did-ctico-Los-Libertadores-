@@ -461,3 +461,55 @@ html {
 h3[id^="parte"] {
     scroll-margin-top: 100px; 
 }
+
+/* Estilo general para la descripción del capítulo */
+.cap-descripcion-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    /* Cambiamos border-left por border-top para el look horizontal */
+    border-top: 5px solid #F28C28; 
+    border-left: none; /* Quitamos el borde de la izquierda si existía */
+    margin-bottom: 30px; /* Espacio extra para que no pegue con las tarjetas */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    width: 100%; /* Obligamos a que use todo el ancho disponible */
+    box-sizing: border-box;
+}
+
+/* Estilos de las tarjetas interactivas (Botones) */
+.tarjeta {
+    background-color: #F28C28; /* Color naranja base */
+    color: #1a1a1a;
+    padding: 25px 20px; /* Más grandes y espaciosas */
+    font-size: 1.2rem; /* Letra más grande */
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    width: 100%;
+    text-align: left;
+}
+
+/* Efecto Hover (al pasar el cursor) */
+.tarjeta:hover {
+    background-color: #004d00; /* Verde oscuro institucional */
+    color: #ffffff; /* Texto en blanco */
+    transform: translateY(-4px); /* Pequeño salto hacia arriba */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+}
+
+.icono-tarjeta {
+    font-size: 1.8rem; /* Iconos más grandes */
+}
+
+#contenedor-tarjetas {
+    display: block; /* Esto obliga a que los hijos (descripción y grid) se apilen verticalmente */
+    width: 100%;
+}
