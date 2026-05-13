@@ -1,5 +1,5 @@
 :root {
-  --color-institucional: #006473; 
+  --color-institucional: #006D83; 
   --amarillo-lib: #fdb813;
   --blanco: #ffffff;
   --gris-fondo: #f4f7f6;
@@ -116,13 +116,13 @@ body {
 .botones-card button:hover { background: var(--amarillo-lib); color: var(--texto-oscuro); transform: scale(1.05); }
 
 /* FONDOS TARJETAS */
-.card-infantil { background-image: url('https://images.unsplash.com/photo-1502086223501-7ea24ea6324c?q=80'); }
-.card-cartagena { background-image: url('https://images.unsplash.com/photo-1583417267826-cf5d9f36f94c?q=80'); }
-.card-especial { background-image: url('https://images.unsplash.com/photo-1541829011-8935c1566f10?q=80'); }
-.card-virtual { background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80'); }
-.card-etno { background-image: url('https://images.unsplash.com/photo-1523050853021-db983f6744a1?q=80'); }
-.bg-reglamento { background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80'); }
-.bg-practica { background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80'); }
+.card-infantil { background-image: url('https://i.pinimg.com/736x/23/f5/35/23f53532a32fd65bc86b0b023c389c65.jpg'); }
+.card-cartagena { background-image: url('https://i.pinimg.com/1200x/f5/32/84/f5328499cdfcba7a3b8cce897ad3968a.jpg'); }
+.card-especial { background-image: url('https://i.pinimg.com/736x/10/5d/0a/105d0ade2866e185f7f0488b9ce19f57.jpg'); }
+.card-virtual { background-image: url('https://i.pinimg.com/736x/58/a9/30/58a9308d2bc0eaf81051f451965a6f16.jpg'); }
+.card-etno { background-image: url('https://i.pinimg.com/736x/5e/97/56/5e975647e8af70318a9d078de4f069c0.jpg'); }
+.bg-reglamento { background-image: url('https://i.pinimg.com/736x/e1/d3/92/e1d392b81d300d8990d81041383540fb.jpg'); }
+.bg-practica { background-image: url('https://i.pinimg.com/1200x/01/1a/43/011a4394a44fc1d5a98164f9a9ab2b65.jpg'); }
 
 /* --- NUEVAS TARJETAS PARA REGLAMENTO Y PRÁCTICA --- */
 .grid-reglamento {
@@ -253,7 +253,7 @@ body {
 #modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999; }
 #modal-detalle { 
     position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-    background: white; width: 550px; max-width: 90%; border-radius: 15px; 
+    background: white; width: 850px; max-width: 90%; border-radius: 15px; 
     z-index: 1000; padding: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
 }
 .btn-cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; border: none; background: none; cursor: pointer; color: #777; transition: 0.2s; }
@@ -284,7 +284,20 @@ body {
     background-color: var(--color-institucional);
     color: var(--blanco); transform: translateX(-3px); 
 }
-
+/* Ajuste para que el modal sea responsivo con el nuevo panel lateral */
+@media (max-width: 800px) {
+    .modal-layout-wrapper {
+        flex-direction: column; /* Se apilan en vertical en celulares */
+    }
+    #modal-detalle {
+        width: 95%;
+        padding: 20px;
+        max-height: 95vh;
+    }
+    .columna-reglamento-lateral {
+        margin-top: 15px;
+    }
+}
 /* ==========================================
    FOOTER INSTITUCIONAL
    ========================================== */
@@ -370,7 +383,7 @@ body {
 
 /* Franja inferior oscura */
 .footer-legal {
-    background-color: #006473; /* Verde oscuro institucional */
+    background-color: #006D83; /* Verde oscuro institucional */
     color: #ffffff;
     text-align: center;
     padding: 20px 15px;
@@ -499,7 +512,7 @@ h3[id^="parte"] {
 
 /* Efecto Hover (al pasar el cursor) */
 .tarjeta:hover {
-    background-color: #004d00; /* Verde oscuro institucional */
+    background-color: #006D83; /* Verde oscuro institucional */
     color: #ffffff; /* Texto en blanco */
     transform: translateY(-4px); /* Pequeño salto hacia arriba */
     box-shadow: 0 8px 15px rgba(0,0,0,0.25);
@@ -512,4 +525,98 @@ h3[id^="parte"] {
 #contenedor-tarjetas {
     display: block; /* Esto obliga a que los hijos (descripción y grid) se apilen verticalmente */
     width: 100%;
+}
+
+/* --- BOTÓN FLOTANTE PDF --- */
+.btn-flotante-pdf {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-institucional, #006D83);
+    color: white;
+    height: 50px;
+    padding: 0 20px 0 16px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-flotante-pdf:hover {
+    background-color: var(--amarillo-lib, #F28C28);
+    transform: scale(1.05);
+    color: white;
+}
+
+.btn-flotante-texto {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.logo-nav {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo-nav:hover {
+    transform: scale(1.05); /* Le da un pequeño efecto de aumento al pasar el mouse */
+}
+
+.caja-calendario-dinamica {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff5eb;
+    border: 1px solid #ff9800;
+    border-left: 5px solid #ff9800;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.cal-contenido {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cal-contenido i {
+    font-size: 1.8rem;
+    color: #ff9800;
+}
+
+.cal-contenido h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #004b57;
+}
+
+.cal-contenido p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.btn-cal-link {
+    background: #ff9800;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-cal-link:hover {
+    background: #e67e22;
+    transform: scale(1.05);
 }
