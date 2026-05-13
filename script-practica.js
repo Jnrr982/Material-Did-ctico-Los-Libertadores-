@@ -121,8 +121,8 @@ function mostrarDetalle(seccionIndex) {
 
     if (contenedorDetalle) {
         contenedorDetalle.innerHTML = `
-            <div class="detalle-animado" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-top: 5px solid #004d00;">
-                <h3 class="titulo-detalle" style="color: #004d00; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; font-size: 1.6rem;">
+            <div class="detalle-animado" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-top: 5px solid #006D83;">
+                <h3 class="titulo-detalle" style="color: #006D83; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; font-size: 1.6rem;">
                     ${seccion.icono} ${seccion.titulo}
                 </h3>
                 <div class="contenido-detalle" style="line-height: 1.7; font-size: 1.1rem; color: #333;">
