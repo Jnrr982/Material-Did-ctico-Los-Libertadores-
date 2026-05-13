@@ -48,8 +48,8 @@ const REGLAMENTO_DB = {
             {
                 "titulo": "Calendario y Período Académico",
                 "icono": "📅",
-                "contenido": "<h4>Organización del Tiempo Formativo</h4><ul><li><strong>Calendario Académico:</strong> Organización y programación de las actividades académicas, administrativas y de apoyo, definidas y aprobadas por el Consejo Superior, orientada a toda la comunidad educativa: aspirantes, estudiantes nacionales y extranjeros, profesores, administrativos, directivos y padres de familia.</li><li><strong>Período Académico:</strong> Período de tiempo establecido por la Institución para el desarrollo del proceso formativo de sus estudiantes. Puede ser semestral o trimestral, de acuerdo con el diseño y aprobación del programa, y su programación se refleja en el Calendario Académico Institucional.</li></ul>"
-            },
+                "contenido": "<h4>Organización del Tiempo Formativo</h4><ul><li><strong>Calendario Académico:</strong> Organización y programación de las actividades académicas, administrativas y de apoyo, definidas y aprobadas por el Consejo Superior, orientada a toda la comunidad educativa: aspirantes, estudiantes nacionales y extranjeros, profesores, administrativos, directivos y padres de familia.</li><li><strong>Período Académico:</strong> Período de tiempo establecido por la Institución para el desarrollo del proceso formativo de sus estudiantes. Puede ser semestral o trimestral, de acuerdo con el diseño y aprobación del programa, y su programación se refleja en el Calendario Académico Institucional.<br><a href='https://calendarioacademico.libertadores.edu.co' target='_blank' style='display: inline-block; margin-top: 8px; padding: 5px 10px; background-color: var(--color-institucional); color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;'><i class='fas fa-calendar-alt'></i> Ver Calendario Oficial</a></li><li><strong>Carga Académica:</strong> Total de créditos o espacios que el estudiante tiene derecho a inscribir en un período según su Plan de Estudios.</li></ul>"
+            },   
             {
                 "titulo": "Carga Académica y Metodología",
                 "icono": "⚙️",
@@ -83,7 +83,7 @@ const REGLAMENTO_DB = {
             {
                 "titulo": "Opción y Proyecto de Grado",
                 "icono": "🔬",
-                "contenido": "<h4>Trabajo Final de Carrera</h4><ul><li><strong>Opción de Grado:</strong> Requisito de carácter académico establecido por la Institución para que el estudiante, en la última etapa de sus estudios, aplique y fortalezca las competencias adquiridas durante su formación en la solución de problemas del campo de formación.</li><li><strong>Proyecto de Grado:</strong> Trabajo mediante el cual el estudiante sistematiza y documenta la actividad de investigación, creación o innovación como resultado de la aplicación de las competencias adquiridas en el programa académico, dando cuenta de sus capacidades descriptivas, argumentativas y propositivas sobre una experiencia de investigación, proyección social, empresarial o proyecto pedagógico.</li></ul>"
+                "contenido": "<h4>Trabajo Final de Carrera</h4><ul><li><strong>Opción de Grado:</strong> Requisito de carácter académico establecido por la Institución para que el estudiante, en la última etapa de sus estudios, aplique y fortalezca las competencias adquiridas durante su formación en la solución de problemas del campo de formación.</li><li><strong>Proyecto de Grado:</strong> Trabajo mediante el cual el estudiante sistematiza y documenta la actividad de investigación, creación o innovación como resultado de la aplicación de las competencias adquiridas en el programa académico, dando cuenta de sus capacidades descriptivas, argumentativas y propositivas sobre una experiencia de investigación, proyección social, empresarial o proyecto pedagógico.<br><a href='https://darkseagreen-emu-495688.hostingersite.com/grados/' target='_blank' style='display: inline-block; margin-top: 8px; padding: 5px 10px; background-color: var(--color-institucional); color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;'><i class='fas fa-calendar-alt'></i> Ver Fechas Grado</a></li></ul>"
             },
             {
                 "titulo": "Título Académico",
@@ -495,8 +495,8 @@ function mostrarDetalle(capituloId, seccionIndex) {
 
     if (contenedorDetalle) {
         contenedorDetalle.innerHTML = `
-            <div class="detalle-animado" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-top: 5px solid #004d00;">
-                <h3 class="titulo-detalle" style="color: #004d00; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; font-size: 1.6rem;">
+            <div class="detalle-animado" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-top: 5px solid #006D83;">
+                <h3 class="titulo-detalle" style="color: #006D83; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; font-size: 1.6rem;">
                     ${seccion.icono} ${seccion.titulo}
                 </h3>
                 <div class="contenido-detalle" style="line-height: 1.7; font-size: 1.1rem; color: #333;">
