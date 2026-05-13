@@ -6,12 +6,15 @@
     <title>Orientación de Ruta Académica - Los Libertadores</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="https://www.ulibertadores.edu.co/favicon.ico">
 </head>
 <body>
 
     <nav class="nav-institucional">
-        <div class="nav-container">
-            <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Logo-Los-Libertadores-3-1.png" alt="Logo Los Libertadores" class="logo-nav">
+            <div class="nav-container">
+                <a href="https://www.ulibertadores.edu.co/" target="_blank" title="Ir a la página oficial de Los Libertadores">
+                    <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Logo-Los-Libertadores-3-1.png" alt="Logo Los Libertadores" class="logo-nav">
+                </a>
             <div class="nav-menus">
 
                 <div class="nav-dropdown">
@@ -77,17 +80,21 @@
 
                 <h3 style="color: var(--color-institucional); margin-bottom: 25px; font-size: 1.3rem; text-align: center;">Selecciona tu área de interés:</h3>
 
-                <div style="max-width: 700px; margin: 0 auto;">
-                    <div class="card-carrera" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80'); cursor: pointer;" onclick="cambiarSeccion('seleccion-programa')">
-                        <div class="overlay-card"></div>
-                        <div class="contenido-card">
-                            <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Facultad de Ciencias Humanas y Sociales</h2>
-                            <p style="color: var(--amarillo-lib); font-weight: bold; font-size: 1.1rem; margin-top: 15px;">Explorar Programas <i class="fas fa-arrow-right"></i></p>
+                <div class="card-carrera" style="background-image: url('https://i.pinimg.com/1200x/26/95/a8/2695a86299be085fb042483f488bd80e.jpg'); cursor: pointer;" onclick="cambiarSeccion('seleccion-programa')">
+                    <div class="overlay-card"></div>
+                    <div class="contenido-card">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+                            <h2 style="font-size: 1.8rem; margin-bottom: 10px; margin-top: 0;">Facultad de Ciencias Humanas y Sociales</h2>
+                            <a href="https://www.ulibertadores.edu.co/facultad-ciencias-humanas-sociales/" target="_blank" onclick="event.stopPropagation();" style="color: #ff9800; font-size: 1.4rem; opacity: 0.8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--amarillo-lib)'" onmouseout="this.style.color='#ff9800'" title="Página Oficial de la Facultad">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
+                        <p style="color: var(--amarillo-lib); font-weight: bold; font-size: 1.1rem; margin-top: 15px;">Explorar Programas <i class="fas fa-arrow-right"></i></p>
                     </div>
+                </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                        <div class="card-carrera" style="background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80'); cursor: pointer; height: 160px;" onclick="cambiarSeccion('pantalla-reglamento')">
+                        <div class="card-carrera" style="background-image: url('https://i.pinimg.com/1200x/8c/05/db/8c05db31b3d1458f5cc8250c19d7bdaa.jpg'); cursor: pointer; height: 160px;" onclick="cambiarSeccion('pantalla-reglamento')">
                             <div class="overlay-card" style="background: rgba(0, 100, 115, 0.85);"></div>
                             <div class="contenido-card">
                                 <h3 style="color: white; margin: 0; font-size: 1.4rem;"><i class="fas fa-book"></i> Reglamento</h3>
@@ -95,7 +102,7 @@
                             </div>
                         </div>
 
-                        <div class="card-carrera" style="background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80'); cursor: pointer; height: 160px;" onclick="cambiarSeccion('pantalla-practica')">
+                        <div class="card-carrera" style="background-image: url('https://i.pinimg.com/1200x/01/1a/43/011a4394a44fc1d5a98164f9a9ab2b65.jpg'); cursor: pointer; height: 160px;" onclick="cambiarSeccion('pantalla-practica')">
                             <div class="overlay-card" style="background: rgba(0, 100, 115, 0.85);"></div>
                             <div class="contenido-card">
                                 <h3 style="color: white; margin: 0; font-size: 1.4rem;"><i class="fas fa-chalkboard-teacher"></i> Prácticas</h3>
@@ -212,56 +219,87 @@
                 </button>
                 <h2 class="titulo-facultad">Programas Académicos</h2>
                 <div class="grid-licenciaturas">
+
                     <div class="card-carrera card-infantil">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
-                            <h2>Licenciatura en Educación Infantil (Bogotá)</h2>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <h2 style="margin: 0; font-size: 1.4rem;">Licenciatura en Educación Infantil (Bogotá)</h2>
+                                <a href="https://www.ulibertadores.edu.co/facultad-ciencias-humanas-sociales/licenciatura-educacion-infantil/" target="_blank" style="color: #ff9800; font-size: 1.2rem; opacity: 0.8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--amarillo-lib)'" onmouseout="this.style.color='ff9800'" title="Página Oficial del Programa">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                             <div class="botones-card">
                                 <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
                     </div>
+
                     <div class="card-carrera card-cartagena">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
-                            <h2>Lic. en Educación Infantil (Cartagena)</h2>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <h2 style="margin: 0; font-size: 1.4rem;">Lic. en Educación Infantil (Cartagena)</h2>
+                                <a href="https://www.ulibertadores.edu.co/facultad-ciencias-humanas-sociales/licenciatura-educacion-infantil-cartagena/" target="_blank" style="color: #ff9800; font-size: 1.2rem; opacity: 0.8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--amarillo-lib)'" onmouseout="this.style.color='ff9800'" title="Página Oficial del Programa">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                             <div class="botones-card">
                                 <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
                     </div>
+
                     <div class="card-carrera card-especial">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
-                            <h2>Licenciatura en Educación Especial</h2>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <h2 style="margin: 0; font-size: 1.4rem;">Licenciatura en Educación Especial</h2>
+                                <a href="https://www.ulibertadores.edu.co/facultad-ciencias-humanas-sociales/licenciatura-educacion-especial/" target="_blank" style="color: #ff9800; font-size: 1.2rem; opacity: 0.8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--amarillo-lib)'" onmouseout="this.style.color='ff9800'" title="Página Oficial del Programa">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                             <div class="botones-card">
                                 <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
                     </div>
+
                     <div class="card-carrera card-virtual">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
-                            <h2>Lic. en Educación Infantil (Virtual)</h2>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <h2 style="margin: 0; font-size: 1.4rem;">Lic. en Educación Infantil (Virtual)</h2>
+                                <a href="https://www.ulibertadores.edu.co/facultad-ciencias-humanas-sociales/licenciatura-en-educacion-infantil-virtual/" target="_blank" style="color: #ff9800; font-size: 1.2rem; opacity: 0.8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--amarillo-lib)'" onmouseout="this.style.color='ff9800'" title="Página Oficial del Programa">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                             <div class="botones-card">
                                 <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
                     </div>
+
                     <div class="card-carrera card-etno">
                         <div class="overlay-card"></div>
                         <div class="contenido-card">
-                            <h2>Licenciatura en Etnoeducación (Virtual)</h2>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                                <h2 style="margin: 0; font-size: 1.4rem;">Licenciatura en Etnoeducación (Virtual)</h2>
+                                <a href="https://www.ulibertadores.edu.co/facultad-ciencias-humanas-sociales/licenciatura-en-etnoeducacion-virtual/" target="_blank" style="color: #ff9800; font-size: 1.2rem; opacity: 0.8; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--amarillo-lib)'" onmouseout="this.style.color='ff9800'" title="Página Oficial del Programa">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                             <div class="botones-card">
                                 <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Ver Mapa</button>
                                 <button onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-cronologico')">Ver Ruta</button>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -275,6 +313,16 @@
                     </div>
                     <span class="badget-programa" id="tag-general">Programa</span>
                 </header>
+                <div id="calendario-general" class="caja-calendario-dinamica">
+                    <div class="cal-contenido">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <h4>Calendario Académico del Programa</h4>
+                            <p>Consulta fechas de parciales y eventos específicos.</p>
+                        </div>
+                    </div>
+                    <a href="#" target="_blank" class="btn-cal-link">Ver Calendario</a>
+                </div>
                 <div class="leyenda-colores">
                     <span class="badge-leyenda cat-basico">Básico / Pedagogía</span>
                     <span class="badge-leyenda cat-practica">Práctica Pedagógica</span>
@@ -296,6 +344,16 @@
                     </div>
                     <span class="badget-programa" id="tag-cronologico">Programa</span>
                 </header>
+                <div id="calendario-cronologico" class="caja-calendario-dinamica">
+                    <div class="cal-contenido">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <h4>Calendario Académico del Programa</h4>
+                            <p>Consulta fechas de parciales y eventos específicos.</p>
+                        </div>
+                    </div>
+                    <a href="#" target="_blank" class="btn-cal-link">Ver Calendario</a>
+                </div>
                 <div class="roadmap-vertical">
                     <div class="linea-central"></div>
                     <div id="estaciones-roadmap"></div>
@@ -307,33 +365,104 @@
     <div id="modal-overlay" class="oculto" onclick="cerrarModal()"></div>
     <div id="modal-detalle" class="oculto">
         <button class="btn-cerrar-modal" onclick="cerrarModal()">×</button>
-        <div class="modal-header">
-            <div class="modal-tags">
-                <span class="tag-modal" id="modal-tag-semestre">Semestre</span>
-                <span class="tag-modal" id="det-categoria">Categoría</span>
-            </div>
-            <h2 id="det-nombre">Nombre de la Asignatura</h2>
-        </div>
-        <div class="modal-body">
-            <div class="info-item">
-                <strong><i class="fas fa-bullseye"></i> Información:</strong>
-                <p id="det-objetivo">Cargando contenido...</p>
-            </div>
-            <div class="info-row">
-                <div class="info-item" style="flex: 2;">
-                    <strong id="lbl-requisitos"><i class="fas fa-list-ul"></i> Requisitos:</strong>
-                    <p id="det-requisitos">Ninguno</p>
+
+        <div style="display: flex; gap: 25px; align-items: stretch; text-align: left;">
+
+            <div style="flex: 2; display: flex; flex-direction: column; gap: 15px;">
+
+                <div class="modal-header" style="margin-bottom: 0; padding-bottom: 10px;">
+                    <div class="modal-tags">
+                        <span class="tag-modal" id="modal-tag-semestre">Semestre</span>
+                        <span class="tag-modal" id="det-categoria">Categoría</span>
+                    </div>
+                    <h2 id="det-nombre" style="margin-top: 10px;">Nombre de la Asignatura</h2>
                 </div>
-                <div id="columna-creditos" class="info-item" style="flex: 1; text-align: center;">
-                    <strong id="lbl-creditos"><i class="fas fa-star"></i> Créditos:</strong>
-                    <p id="det-creditos" style="font-size: 1.2rem; font-weight: bold; color: var(--color-institucional);">0</p>
+
+                <div class="info-item">
+                    <strong><i class="fas fa-bullseye"></i> Información:</strong>
+                    <p id="det-objetivo">Cargando...</p>
+                </div>
+
+                <div id="bloque-resultados-aprendizaje" style="display:none;">
+                    <strong style="color: var(--color-institucional); display: block; margin-bottom: 10px;">
+                        <i class="fas fa-list-check"></i> Resultados de Aprendizaje:
+                    </strong>
+                    <div id="det-resultados-aprendizaje"></div>
+                </div>
+
+                <div class="info-row" style="display: flex; gap: 15px; margin-top: auto; padding-top: 10px;">
+                    <div class="info-item" style="flex: 2; margin-bottom: 0;">
+                        <strong id="lbl-requisitos"><i class="fas fa-link"></i> Requisitos:</strong>
+                        <p id="det-requisitos">Ninguno</p>
+                    </div>
+                    <div id="columna-creditos" class="info-item" style="flex: 1; text-align: center; margin-bottom: 0;">
+                        <strong id="lbl-creditos"><i class="fas fa-star"></i> Créditos:</strong>
+                        <p id="det-creditos" style="font-size: 1.2rem; font-weight: bold; color: var(--color-institucional);">0</p>
+                    </div>
+                </div>
+            </div>
+
+                    <div class="columna-reglamento-lateral" style="flex: 1; background: #fdf2e9; border-radius: 12px; padding: 20px; border: 1px solid #fabd8d;">
+                        <h3 style="color: #e67e22; margin-top: 0; font-size: 1.1rem; border-bottom: 2px solid #fabd8d; padding-bottom: 10px;">
+                            <i class="fas fa-gavel"></i> Criterios de Aprobación
+                        </h3>
+
+                        <div style="margin-top: 15px;">
+                            <div style="margin-bottom: 20px;">
+                                <strong style="display: block; color: #d35400; font-size: 0.9rem; text-transform: uppercase;">Nota Mínima (Art. 55)</strong>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                                    <span style="font-size: 2rem; font-weight: bold; color: var(--color-institucional);">3.0</span>
+                                    <p style="font-size: 0.85rem; margin: 0; line-height: 1.2;">Se aprueba con una calificación igual o superior a tres punto cero.</p>
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <strong style="display: block; color: #d35400; font-size: 0.9rem; text-transform: uppercase;">Asistencia (Art. 37)</strong>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                                    <i class="fas fa-clock" style="font-size: 1.5rem; color: #e67e22;"></i>
+                                    <p style="font-size: 0.85rem; margin: 0; line-height: 1.2;">La inasistencia al <strong>20%</strong> o más de las actividades programadas conlleva a la pérdida (0.0).</p>
+                                </div>
+                            </div>
+
+                            <div style="background: white; padding: 10px; border-radius: 8px; border: 1px dashed #fabd8d;">
+                                <p style="font-size: 0.75rem; color: #666; margin: 0;">
+                                    <i class="fas fa-info-circle"></i> Los fallos en programas virtuales se evalúan según el cumplimiento de actividades en plataforma.
+                                </p>
+                            </div>
+                </div>
+            </div>
+        </div>
+        </div> 
+                <!-- Resultados de Aprendizaje -->
+                <div id="bloque-resultados-aprendizaje" style="display:none; margin-top:15px;">
+                    <div style="
+                        background: var(--gris-fondo);
+                        padding: 15px 20px;
+                        border-radius: 10px;
+                        border-left: 4px solid var(--amarillo-lib);
+                    ">
+                        <strong style="
+                            display: block;
+                            color: var(--color-institucional);
+                            font-size: 1rem;
+                            margin-bottom: 12px;
+                        ">
+                            <i class="fas fa-check-circle"></i> Resultados de Aprendizaje
+                        </strong>
+                        <div id="det-resultados-aprendizaje"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
-    
+
+    <a href="https://www.ulibertadores.edu.co/images/documentos-institucionales/documentos/reglamento-estudiantil-2019-2.pdf" target="_blank" class="btn-flotante-pdf" title="Ver Reglamento Oficial en PDF">
+        <i class="fas fa-file-pdf"></i>
+        <span class="btn-flotante-texto">Reglamento Oficial</span>
+    </a>
+
     <!-- ========================================== -->
     <!-- FOOTER INSTITUCIONAL -->
     <!-- ========================================== -->
@@ -429,6 +558,6 @@
             }
         });
     </script>
-    
+
 </body>
 </html>
