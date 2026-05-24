@@ -620,3 +620,155 @@ h3[id^="parte"] {
     background: #e67e22;
     transform: scale(1.05);
 }
+
+/* --- BOTÓN BUSCAR EN EL NAV --- */
+.btn-buscar {
+    background-color: #e67e22 !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.2s ease;
+}
+
+.btn-buscar:hover {
+    background-color: var(--amarillo-lib) !important;
+    border-color: var(--amarillo-lib);
+    color: #000000 !important;
+}
+
+/* --- OVERLAY MEJORADO --- */
+#buscador-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 25, 30, 0.6); 
+    backdrop-filter: blur(4px); 
+    z-index: 2000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 75px;
+    animation: fadeIn 0.25s ease;
+}
+
+/* --- MODAL --- */
+#buscador-modal {
+    background: white;
+    width: 620px;
+    max-width: 92%;
+    border-radius: 18px; 
+    padding: 20px 24px 14px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    max-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-16px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* --- CABECERA DEL MODAL --- */
+#buscador-modal > div:first-child {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+}
+
+/* --- INPUT --- */
+#buscador-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: #222;
+    background: transparent;
+    font-family: 'Segoe UI', sans-serif;
+}
+#buscador-input::placeholder { color: #aaa; }
+
+/* --- CONTENEDOR DE RESULTADOS Y TRUCO DEL TEXTO INYECTADO --- */
+#buscador-resultados {
+    overflow-y: auto;
+    flex: 1;
+    padding: 15px 0 4px;
+    position: relative;
+}
+
+/* Magia CSS: Inyección de la caja de información sin tocar HTML */
+#buscador-resultados::before {
+    content: "💡 ¿Qué puedes encontrar aquí? \A Escribe palabras clave para acceder a mapas de Licenciaturas, capítulos del Reglamento Estudiantil (notas, asistencia) o lineamientos de Prácticas Profesionales.";
+    white-space: pre-wrap; 
+    display: block;
+    background: #fdf8f3; 
+    border-left: 4px solid #e67e22; 
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#buscador-resultados::-webkit-scrollbar { width: 5px; }
+#buscador-resultados::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* --- CADA RESULTADO --- */
+.resultado-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    border: 1px solid #f0f0f0;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+/* Hover más interactivo */
+.resultado-item:hover {
+    background: #fafafa;
+    border-color: #ffb74d; 
+    transform: translateX(5px); 
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.08);
+}
+
+/* --- ICONO DE CADA RESULTADO --- */
+.resultado-icono {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: #e67e22;
+    background: #fdf8f3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #buscador-overlay { padding-top: 20px; }
+    #buscador-modal { max-height: 88vh; border-radius: 12px; }
+}
