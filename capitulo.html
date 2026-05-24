@@ -12,62 +12,61 @@
                     <body class="bg-libreria"> <!-- Usamos la clase de fondo que tengas en tu style.css -->
 
                         <nav class="nav-institucional">
-                                <div class="nav-container">
-                                    <a href="https://www.ulibertadores.edu.co/" target="_blank" title="Ir a la página oficial de Los Libertadores">
-                                        <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Logo-Los-Libertadores-3-1.png" alt="Logo Los Libertadores" class="logo-nav">
-                                    </a>
+                            <div class="nav-container">
+                                <a href="https://www.ulibertadores.edu.co/" target="_blank" title="Ir a la página oficial de Los Libertadores">
+                                    <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Logo-Los-Libertadores-3-1.png" alt="Logo Los Libertadores" class="logo-nav">
+                                </a>
                                 <div class="nav-menus">
 
-                                    <!-- Menú: Inicio -->
+                                    <button class="btn-buscar" onclick="abrirBuscador()" title="Buscar en la plataforma">
+                                        <i class="fas fa-search"></i>
+                                        <span>Buscar</span>
+                                    </button>
+
                                     <div class="nav-dropdown">
-                                        <button class="nav-btn" onclick="window.location.href='index.html'">Inicio <i class="fas fa-caret-down"></i></button>
+                                        <button class="nav-btn activo" id="btn-inicio" onclick="cambiarSeccion('pantalla-bienvenida')">Inicio <i class="fas fa-caret-down"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="index.html?seccion=seleccion-programa">Facultad de Ciencias Humanas y Sociales</a>
+                                            <a onclick="cambiarSeccion('seleccion-programa')">Facultad de Ciencias Humanas y Sociales</a>
                                         </div>
                                     </div>
 
-                                    <!-- Menú: Mapa Completo -->
                                     <div class="nav-dropdown">
                                         <button class="nav-btn">Mapa Completo <i class="fas fa-caret-down"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="index.html?carrera=Educación Infantil Bogotá&modo=mapa-general">Ed. Infantil (Bogotá)</a>
-                                            <a href="index.html?carrera=Educación Infantil Cartagena&modo=mapa-general">Ed. Infantil (Cartagena)</a>
-                                            <a href="index.html?carrera=Educación Especial Bogotá&modo=mapa-general">Educación Especial</a>
-                                            <a href="index.html?carrera=Educación Infantil Virtual&modo=mapa-general">Ed. Infantil (Virtual)</a>
-                                            <a href="index.html?carrera=Etnoeducación Virtual&modo=mapa-general">Etnoeducación (Virtual)</a>
+                                            <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-general')">Ed. Infantil (Bogotá)</a>
+                                            <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-general')">Ed. Infantil (Cartagena)</a>
+                                            <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-general')">Educación Especial</a>
+                                            <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-general')">Ed. Infantil (Virtual)</a>
+                                            <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-general')">Etnoeducación (Virtual)</a>
                                         </div>
                                     </div>
 
-                                    <!-- Menú: Ruta Cronológica -->
                                     <div class="nav-dropdown">
                                         <button class="nav-btn">Ruta Cronológica <i class="fas fa-caret-down"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="index.html?carrera=Educación Infantil Bogotá&modo=mapa-cronologico">Ed. Infantil (Bogotá)</a>
-                                            <a href="index.html?carrera=Educación Infantil Cartagena&modo=mapa-cronologico">Ed. Infantil (Cartagena)</a>
-                                            <a href="index.html?carrera=Educación Especial Bogotá&modo=mapa-cronologico">Educación Especial</a>
-                                            <a href="index.html?carrera=Educación Infantil Virtual&modo=mapa-cronologico">Ed. Infantil (Virtual)</a>
-                                            <a href="index.html?carrera=Etnoeducación Virtual&modo=mapa-cronologico">Etnoeducación (Virtual)</a>
+                                            <a onclick="seleccionarCarrera('Educación Infantil Bogotá', 'mapa-cronologico')">Ed. Infantil (Bogotá)</a>
+                                            <a onclick="seleccionarCarrera('Educación Infantil Cartagena', 'mapa-cronologico')">Ed. Infantil (Cartagena)</a>
+                                            <a onclick="seleccionarCarrera('Educación Especial Bogotá', 'mapa-cronologico')">Educación Especial</a>
+                                            <a onclick="seleccionarCarrera('Educación Infantil Virtual', 'mapa-cronologico')">Ed. Infantil (Virtual)</a>
+                                            <a onclick="seleccionarCarrera('Etnoeducación Virtual', 'mapa-cronologico')">Etnoeducación (Virtual)</a>
                                         </div>
                                     </div>
 
-                                    <!-- Menú: Reglamento -->
                                     <div class="nav-dropdown">
                                         <button class="nav-btn" id="btn-reglamento" onclick="cambiarSeccion('pantalla-reglamento')">
                                             Reglamento <i class="fas fa-caret-down"></i>
                                         </button>
                                         <div class="dropdown-content">
-                                            <!-- Usamos location.hash para saltar al ID -->
                                             <a onclick="cambiarSeccion('pantalla-reglamento'); location.hash='#parte1'">Parte I: Fundamentos y Admisiones</a>
                                             <a onclick="cambiarSeccion('pantalla-reglamento'); location.hash='#parte2'">Parte II: Régimen Académico</a>
                                             <a onclick="cambiarSeccion('pantalla-reglamento'); location.hash='#parte3'">Parte III: Permanencia y Estímulos</a>
                                         </div>
                                     </div>
 
-                                    <!-- Menú: Práctica -->
                                     <div class="nav-dropdown">
-                                        <button class="nav-btn" onclick="window.location.href='index.html?seccion=pantalla-practica'">Práctica <i class="fas fa-caret-down"></i></button>
+                                        <button class="nav-btn" id="btn-practica" onclick="cambiarSeccion('pantalla-practica')">Práctica <i class="fas fa-caret-down"></i></button>
                                         <div class="dropdown-content">
-                                            <a href="index.html?seccion=pantalla-practica">Capítulo XI: Prácticas Profesionales y Movilidad</a>
+                                            <a onclick="cambiarSeccion('pantalla-practica')">Capítulo XI: Prácticas Profesionales y Movilidad</a>
                                         </div>
                                     </div>
 
