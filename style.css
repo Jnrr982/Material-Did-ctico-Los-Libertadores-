@@ -298,9 +298,9 @@ body {
         margin-top: 15px;
     }
 }
-/* ==========================================
+/* 
    FOOTER INSTITUCIONAL
-   ========================================== */
+ */
 .main-footer {
     width: 100%;
     background-color: #f7f7f7; /* Gris claro de fondo */
@@ -479,10 +479,9 @@ h3[id^="parte"] {
 .cap-descripcion-box {
     background-color: #f8f9fa;
     padding: 20px;
-    /* Cambiamos border-left por border-top para el look horizontal */
     border-top: 5px solid #F28C28; 
-    border-left: none; /* Quitamos el borde de la izquierda si existía */
-    margin-bottom: 30px; /* Espacio extra para que no pegue con las tarjetas */
+    border-left: none; 
+    margin-bottom: 30px; 
     border-radius: 8px;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -523,7 +522,7 @@ h3[id^="parte"] {
 }
 
 #contenedor-tarjetas {
-    display: block; /* Esto obliga a que los hijos (descripción y grid) se apilen verticalmente */
+    display: block; 
     width: 100%;
 }
 
@@ -709,7 +708,7 @@ h3[id^="parte"] {
     position: relative;
 }
 
-/* Magia CSS: Inyección de la caja de información sin tocar HTML */
+
 #buscador-resultados::before {
     content: "💡 ¿Qué puedes encontrar aquí? \A Escribe palabras clave para acceder a mapas de Licenciaturas, capítulos del Reglamento Estudiantil (notas, asistencia) o lineamientos de Prácticas Profesionales.";
     white-space: pre-wrap; 
