@@ -4,12 +4,11 @@
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <title>Reglamento Estudiantil - Los Libertadores</title>
-                        <!-- Vinculamos tu CSS principal para heredar todos los colores y estilos -->
                         <link rel="stylesheet" href="style.css">
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
                         <link rel="icon" type="image/x-icon" href="https://www.ulibertadores.edu.co/favicon.ico">
                     </head>
-                    <body class="bg-libreria"> <!-- Usamos la clase de fondo que tengas en tu style.css -->
+                    <body class="bg-libreria"> 
 
                         <nav class="nav-institucional">
                             <div class="nav-container">
@@ -74,9 +73,9 @@
                             </div>
                         </nav>
 
-                        <!-- ========================================== -->
-                        <!-- CONTENIDO PRINCIPAL (Estilo Tarjeta Blanca) -->
-                        <!-- ========================================== -->
+
+                        <!-- CONTENIDO PRINCIPAL -->
+
                                 <main style="padding: 40px 20px; min-height: 70vh;">
                                     <!-- Agregamos el id="contenedor-principal" aquí -->
                                     <div id="contenedor-principal" style="max-width: 900px; margin: 0 auto; background: white; padding: 50px; border-radius: 15px; box-shadow: var(--sombra); border-top: 8px solid var(--amarillo-lib);">
@@ -93,12 +92,10 @@
                                     <div style="width: 60px; height: 4px; background: var(--amarillo-lib); margin-top: 15px;"></div>
                                 </header>
 
-                                <!-- NUEVO: Contenedor de Tarjetas Interactivas -->
+
                                 <div id="contenedor-tarjetas" class="grid-tarjetas" style="margin-bottom: 40px;">
-                                    <!-- Aquí el JS inyectará los cuadritos -->
                                 </div>
 
-                                <!-- NUEVO: Caja de Detalle (Aquí se lee la info al dar click) -->
                                 <div id="contenedor-detalle" class="detalle-box">
                                     <div style="text-align: center; color: #888; padding: 20px;">
                                         <i class="fas fa-mouse-pointer" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
@@ -109,9 +106,9 @@
                             </div>
                         </main>
                         
-                        <!-- ========================================== -->
+
                         <!-- FOOTER INSTITUCIONAL -->
-                        <!-- ========================================== -->
+
                         <footer class="main-footer">
                             <div class="footer-contact">
 
@@ -185,8 +182,6 @@
                             </div>
                         </footer>
 
-                        <!-- LÓGICA DE CARGA -->
-                        <!-- Al final, antes de </body> -->
                         <script src="script-reglamento.js"></script>
                     </body>
                     </html>
