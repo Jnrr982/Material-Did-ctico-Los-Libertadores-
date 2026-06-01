@@ -1425,7 +1425,7 @@ function seleccionarCarrera(programa, vistaId) {
         boton.href = urlCalendario;
     });
 
-    // 3. Actualización de etiquetas (Tu código original)
+    // 3. Actualización de etiquetas 
     const tagGeneral = document.getElementById('tag-general');
     if(tagGeneral) tagGeneral.innerText = `${programa}`;
 
@@ -1585,7 +1585,7 @@ function generarMapaCronologico() {
         document.getElementById('det-categoria').innerText = nombreCategoria;
         document.getElementById('det-objetivo').innerText = objetivosPorCategoria[mat.t] || "Desarrollar competencias integrales según el plan de estudios.";
 
-        // 3. Requisitos (Lógica simplificada para evitar duplicados)
+        // 3. Requisitos 
         // --- LÓGICA DE REQUISITOS ---
         let requisitoTexto = "Ninguno";
         if (indexSemestre > 0) requisitoTexto = "Aprobación de créditos del periodo anterior.";
@@ -1594,14 +1594,9 @@ function generarMapaCronologico() {
             if(["II", "III", "IV"].includes(num)) requisitoTexto = "Aprobación del nivel anterior.";
         }
 
-        // --- INYECCIÓN DE DATOS (SIN DUPLICADOS) ---
-        // Usamos los nuevos IDs para asegurar que solo se cambie el contenido del <p>
+        // --- INYECCIÓN DE DATOS ---
         document.getElementById('det-requisitos').innerText = requisitoTexto;
         document.getElementById('det-creditos').innerText = mat.c;
-
-        // IMPORTANTE: Elimina o comenta cualquier línea que diga:
-        // document.getElementById('lbl-requisitos').innerText = ...
-        // document.getElementById('lbl-creditos').style.display = ...
 
         // 4. Resultados de Aprendizaje (Diseño Horizontal en 2 columnas)
         const programaRA = bdResultadosAprendizaje[programaSeleccionado];
@@ -1652,7 +1647,7 @@ async function mostrarDetalleReglamento(idCapitulo) {
         const info = datos[idCapitulo];
 
         if (info) {
-            // 2. Llenamos los elementos del modal que ya tienes en el HTML
+
             document.getElementById('det-nombre').innerText = info.titulo;
             document.getElementById('det-categoria').innerText = info.categoria;
             document.getElementById('det-objetivo').innerText = info.contenido;
