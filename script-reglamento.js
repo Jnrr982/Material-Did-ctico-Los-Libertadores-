@@ -463,7 +463,7 @@ function inicializarCapitulo() {
                 `;
             });
 
-            // Inyectamos la descripción y luego las tarjetas en el contenedor
+
             contenedorTarjetas.innerHTML = htmlDescripcion + `
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                     ${tarjetasHTML}
@@ -507,5 +507,5 @@ function mostrarDetalle(capituloId, seccionIndex) {
     }
 }
 
-// Ejecutar la inicialización cuando el DOM esté listo
+
 document.addEventListener('DOMContentLoaded', inicializarCapitulo);
