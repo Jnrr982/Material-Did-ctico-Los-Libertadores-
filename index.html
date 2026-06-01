@@ -77,7 +77,7 @@
 
         <section id="pantalla-bienvenida" class="pantalla-activa">
             <div class="contenedor-facultad centrado-intro">
-                <h1 class="titulo-bienvenida">Bienvenido a tu Ruta Académica</h1>
+                <h1 class="titulo-bienvenida">Bienvenido a “F.A.R.O” (Facilitador Académico de Rutas y Orientación)</h1>
                 <p class="intro-texto">
                     Esta plataforma interactiva está diseñada para acompañarte y guiarte durante tu proceso formativo en la <strong>Fundación Universitaria Los Libertadores</strong>. Aquí podrás explorar los planes de estudio oficiales, visualizar la ruta cronológica de tu carrera paso a paso y consultar los detalles fundamentales de cada asignatura. <br><br>Una herramienta pensada para facilitar tu planificación académica y asegurar tu éxito profesional.
                 </p>
@@ -196,7 +196,7 @@
                     </div>
                 </section>
 
-        <!-- (Secciones de Práctica y Selección de programa permanecen igual) -->
+        <!-- (Secciones de Práctica y Selección de programa ) -->
         <section id="pantalla-practica" class="pantalla-oculta">
             <div class="contenedor-facultad">
                 <button class="btn-volver" onclick="cambiarSeccion('pantalla-bienvenida')" style="margin-bottom: 20px;">
@@ -511,10 +511,9 @@
         <i class="fas fa-file-pdf"></i>
         <span class="btn-flotante-texto">Reglamento Oficial</span>
     </a>
-
-    <!-- ========================================== -->
+    
     <!-- FOOTER INSTITUCIONAL -->
-    <!-- ========================================== -->
+   
     <footer class="main-footer">
         <div class="footer-contact">
 
@@ -589,19 +588,19 @@
     </footer>
     
     <script>
-        // Al cargar la página principal, revisamos si venimos redirigidos
+
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);
             const seccion = params.get('seccion');
             const carrera = params.get('carrera');
             const modo = params.get('modo');
 
-            // Si la URL pide una sección específica (ej: reglamento)
+
             if (seccion) {
                 cambiarSeccion(seccion);
             }
 
-            // Si la URL pide una carrera específica (ej: Infantil Virtual)
+
             if (carrera && modo) {
                 seleccionarCarrera(carrera, modo);
             }
